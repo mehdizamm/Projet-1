@@ -3,36 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta ≠%`$
-    name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="styles.css" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
+    <header>
+        <img id="logo" src="assets/Logo.png">
+    </header>
     <div id="contact-container">
-        <div id="contact-title">
-            <h1>CONTACT</h1>
+        <div class="left">
+            <img id="contact-title" src="assets/contact-title.png">
         </div>
-        <form id="contact-form">
-            <div>
-                <label for="firstName">Firstname</label>
-                <input type="text" name="Prenom/Nom" required placeHolder="Firstname">
-            </div>
-            <div>
-                <label for="Name">Name</label>
-                <input type="text" name="Prenom/Nom" required placeHolder="Name">
-            </div>
-            <div>
-                <label for="email">Email</label>
-                <input type="email" name="email" required placeHolder="Jean.Blanc@gmail.com">
-            </div>
-            <div>
-                <label for="contactUs">Contact us</label>
-                <textarea id="contactUs" name="contactUs" required placeholder="Your message here"></textarea>
-            </div>
-            <button type="submit">Send</button>
-        </form>
+        <div class="right">
+                  <div class="form">
+                    <form id="submit-form" action="">
+
+                      <label class="contact-label"for="firstname/lastname">Name</label><br><br>
+
+                     
+                        <input id="firstname-lastname"  type="text" name="firstname-lastname" minlength="20"  cols="30" rows="7" required placeholder="First Name*">
+                  
+                    
+                        <label class="contact-label" for="email">Email</label>
+                        <input id="email" class="form-input" type="email" placeholder="Your Email*">
+
+                        <label class="contact-label" for="message">Message</label>
+                        <textarea  minlength="20" id="message" cols="30" rows="7" required></textarea>
+                       
+                        <input type="submit" class="submit-button" value="Submit" onclick="checkValidations()">
+                      
+                    </form>
+                  </div>
+                </div>
+              </div>
+        </div>
+       
     </div>
+            <!--<form id="contact-form">
+                 <div>
+                    <label for="firstName">Firstname</label>
+                    <input type="text" name="Prenom/Nom" required placeHolder="Firstname">
+                 </div>
+                 <div>
+                    <label for="Name">Name</label>
+                    <input type="text" name="Prenom/Nom" required placeHolder="Name">
+                 </div>
+                 <div>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" required placeHolder="Jean.Blanc@gmail.com">
+                 </div>
+                 <div>
+                 <label for="contactUs">Contact us</label>
+                 <textarea id="contactUs" name="contactUs" required placeholder="Your message here"></textarea>
+                </div>
+                <button type="submit">Send</button>
+            </form>
+    </div>-->
+      <footer>
+        <p id="footer-copyright">© My Dream Fest</p>
+      </footer>
 </body>
 
 </html>
