@@ -27,15 +27,19 @@ a:hover {
     display: flex;
     margin-left: auto;
     justify-content: space-around;
+    border: 2px solid blue;
+    width:
 }
 
 #mainButton {
-    border: 2px solid red;
     font-family: 'Gill Sans', 'Gill Sans MT';
+    display: flex;
+    padding-right: 25rem;
 }
 
 #mainButton p {
-    text-align: right;
+    margin: auto;
+    font-size: 3rem;
 }
 
 nav {
@@ -59,4 +63,30 @@ nav {
 div {
     display: flex;
     flex: auto;
+}
+
+/* test bouton burger  */
+
+:root {
+    --bar-width: 60px;
+    --bar-height: 8px;
+    --hamburger-gap: 6px;
+    --foregrounf: #333;
+    --background: white;
+}
+
+.hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    gap: var(--hamburger-gap);
+}
+
+.hamburger-menu::before,
+.hamburger-menu::after,
+.hamburger-menu input {
+    content: "";
+    width: var(--bar-width);
+    height: var(--bar-height);
+    background-color: var(--foreground);
+    border-radius: 9999px;
 }
