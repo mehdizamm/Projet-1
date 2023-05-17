@@ -19,6 +19,16 @@ body {
    
 }
 
+Namebox {
+    display:flex;
+    flex-direction: flex-end;
+    justify-content: center;
+}
+    
+    
+
+
+
 .contact-name {
     display: flex;
     flex-direction: flex-end;
