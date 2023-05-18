@@ -16,23 +16,51 @@
         <img src="images/bouton.png" class="button" id="nextbutton" />
         <img src="images/bouton.png" class="button" id="previousbutton" />
     </div>
-    </div>
+
     <script>
         document.body.onload = function () {
-            nbr = 5;
+            nbr = 3;
             p = 0;
             container = document.getElementById("container");
             nextbutton = document.getElementById("nextbutton");
             previousbutton = document.getElementById("previousbutton");
-            container.style.width = (800 * nb) + "px";
-            for (i = 1; i <= nbr; i++) {
+            container.style.width = "800px"
+            container.style.height = (800 * nbr) + "px";
+            for (i = 0; i < nbr; i++) {
                 div = document.createElement("div");
                 div.className = "photo";
-                div.style.backgroundImage = "url('images/im" + i + ".jpg')";
-                container.appendChild(div)
+                div.style.backgroundImage = `url('images/im${i}.jpg')`;
+                container.appendChild(div);
             }
+            afficherMasquer()
         }
-
+        nextbutton.onclick = function () {
+            if (p > -nbr + 1) {
+                p--;
+                container.style.transform = `translate(0, ${p * -800}px)`;
+                container.style.transition = "all 0.5s ease";
+                afficherMasquer()
+            }
+        };
+        previousbutton.onclick = function () {
+            if (p < 0)
+                p++;
+            container.style.transform = `translate(0, ${p * -800}px)`;
+            container.style.transition = "all 0.5s ease";
+            afficherMasquer()
+        }
+        function afficherMasquer() {
+            if (p == -nbr + 1) {
+                nextbutton.style.visibility = "hidden";
+            } else {
+                nextbutton.style.visibility = "visible";
+            }
+            if (p == 0) {
+                previousbutton.style.visibility = "hidden";
+            } else {
+                previousbutton.style.visibility = "visible";
+            }
+        };
     </script>
 </body>
 
