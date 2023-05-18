@@ -1,0 +1,73 @@
+<<<<<<< HEAD
+=======
+body {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: url("images/back.jpg");
+    cursor: url("images/majeur.png"), auto;
+
+}
+
+#carousel {
+    width: 800px;
+    height: 800px;
+    border: solid 4px #fff;
+    box-shadow: 0 0 14px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+#container {
+    width: 800px;
+    height: 400px;
+}
+
+.photo {
+    width: 400px;
+    height: 800px;
+    margin: 0;
+    display: inline-block;
+    background-size: cover;
+}
+
+.button {
+    width: 70px;
+    cursor: pointer;
+    top: 700px;
+}
+
+#nextbutton {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    opacity: 0.4;
+    transform: translateX(-100%);
+    transform: rotate(90deg);
+    transition: 0.3 ease;
+}
+
+#previousbutton {
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    opacity: 0.4;
+    transform: translateX(-100%);
+    transform: rotate(270deg);
+    transition: 0.3 ease;
+}
+
+#nextbutton:hover {
+    transform: rotate(90deg) scale(1.1);
+    opacity: 1;
+    transition: 0.3 ease;
+}
+
+#previousbutton:hover {
+    transform: rotate(270deg) scale(1.1);
+    opacity: 1;
+    transition: 0.3 ease;
+}
+>>>>>>> f91a47a (firstsave)
