@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 body {
     margin: 0;
     display: flex;
@@ -8,7 +6,6 @@ body {
     min-height: 100vh;
     background-image: url("images/back.jpg");
     cursor: url("images/majeur.png"), auto;
-
 }
 
 #carousel {
@@ -18,56 +15,62 @@ body {
     box-shadow: 0 0 14px rgba(0, 0, 0, 0.3);
     position: relative;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-#container {
-    width: 800px;
-    height: 400px;
+#carousel-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(0);
+    transition: transform 0.5s ease-in-out;
 }
 
 .photo {
     width: 400px;
-    height: 800px;
+    height: 400px;
     margin: 0;
-    display: inline-block;
-    background-size: cover;
+    object-fit: cover;
 }
 
 .button {
     width: 70px;
     cursor: pointer;
-    top: 700px;
+    position: absolute;
+    opacity: 0.4;
+    transition: 0.3s ease;
 }
 
 #nextbutton {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    opacity: 0.4;
-    transform: translateX(-100%);
+    bottom: 10px;
     transform: rotate(90deg);
-    transition: 0.3 ease;
 }
 
 #previousbutton {
-    position: absolute;
-    bottom: 0;
-    right: 50%;
-    opacity: 0.4;
-    transform: translateX(-100%);
+    top: 10px;
     transform: rotate(270deg);
-    transition: 0.3 ease;
 }
 
-#nextbutton:hover {
+#nextbutton:hover,
+#previousbutton:hover {
     transform: rotate(90deg) scale(1.1);
     opacity: 1;
-    transition: 0.3 ease;
 }
 
-#previousbutton:hover {
-    transform: rotate(270deg) scale(1.1);
-    opacity: 1;
-    transition: 0.3 ease;
+#nextbutton.hide,
+#previousbutton.hide {
+    display: none;
 }
->>>>>>> f91a47a (firstsave)
+
+#nextbutton.up {
+    transform: rotate(-90deg);
+}
+
+#previousbutton.down {
+    transform: rotate(90deg);
+}

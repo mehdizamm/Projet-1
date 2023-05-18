@@ -6,32 +6,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="gallery.css">
 </head>
 
 <body>
     <h1>GALLERY</h1>
     <div id="carousel">
-        <div id="container"></div>
+        <div id="carousel-container"></div>
         <img src="images/bouton.png" class="button" id="nextbutton" />
         <img src="images/bouton.png" class="button" id="previousbutton" />
     </div>
-    </div>
     <script>
-        document.body.onload = function () {
-            nbr = 5;
-            p = 0;
-            container = document.getElementById("container");
-            nextbutton = document.getElementById("nextbutton");
-            previousbutton = document.getElementById("previousbutton");
-            container.style.width = (800 * nb) + "px";
-            for (i = 1; i <= nbr; i++) {
-                div = document.createElement("div");
-                div.className = "photo";
-                div.style.backgroundImage = "url('images/im" + i + ".jpg')";
-                container.appendChild(div)
+        document.addEventListener("DOMContentLoaded", function () {
+            const nbr = 3;
+            let p = 0;
+            const container = document.getElementById("carousel-container");
+            const nextbutton = document.getElementById("nextbutton");
+            const previousbutton = document.getElementById("previousbutton");
+            container.style.height = (400 * nbr) + "px";
+            for (let i = 1; i <= nbr; i++) {
+                const img = document.createElement("img");
+                img.className = "photo";
+                img.src = "images/im" + i + ".jpg";
+                container.appendChild(img);
             }
-        }
+            afficherMasquer();
 
+            nextbutton.addEventListener("click", function () {
+                if (p > -nbr + 1)
+                    p--;
+                container.style.transform = "translateY(" + (p * -400) + "px)";
+                afficherMasquer();
+            });
+
+            previousbutton.addEventListener("click", function () {
+                if (p < 0)
+                    p++;
+                container.style.transform = "translateY(" + (p * -400) + "px)";
+                afficherMasquer();
+            });
+
+            function afficherMasquer() {
+                if (p === -nbr + 1)
+                    nextbutton.classList.add("hide");
+                else
+                    nextbutton.classList.remove("hide");
+                if (p === 0)
+                    previousbutton.classList.add("hide");
+                else
+                    previousbutton.classList.remove("hide");
+            }
+        });
     </script>
 </body>
