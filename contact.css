@@ -1,3 +1,8 @@
+@font-face {
+    font-family: SurfingCapital;
+    src: url(assets/font/SurfingCapital.ttf);
+  }
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,10 +11,12 @@
 
 body {
    width: 100vw;
+   font-family: SurfingCapital, sans-serif;
 }
 
 #logo {
-    width: 200px;
+    margin-left: 40px;
+    width: 300px;
 }
 
 
@@ -19,27 +26,30 @@ body {
    
 }
 
-Namebox {
-    display:flex;
-    flex-direction: flex-end;
+/* #Namebox {
+    display: inline;
+    flex-direction: flex-end; 
     justify-content: center;
+} */
+
+/* #Namebox :nth-child(2) {
+   display:flex; 
+   position: absolute;
+   top: 125px;
+   right: 280px;
 }
-    
-    
 
-
-
-.contact-name {
-    display: flex;
-    flex-direction: flex-end;
-    justify-content: center;
-}
+#Namebox :nth-child(1) {
+    display:flex; 
+    position: absolute;
+    top: 125px;
+ } */
 
 .left {
     width: 50vw;
-    margin: 100px;
-
-    
+    margin-left: 40px;
+    margin-top: 300px;
+    font-size: 150px;
 }
 
 .right {
@@ -62,13 +72,25 @@ Namebox {
     display: block;
 }
 
-.firstname-lastname {
+/* .firstname-lastname {
     display: flex;
   
-}
+} */
+
+.firstname-lastname  {
+    
+    display: block;
+    background: linear-gradient(#7e8081, #e2e6e8);
+    margin: 10px;;
+    width: 15vw;
+    height: 6vh;
+    border-radius: 8px;
+    border: none;
+    padding: 0.5rem;
+ }
 
 
-  input {
+.form-input  {
     
     display: block;
     background: linear-gradient(#7e8081, #e2e6e8);
@@ -106,10 +128,21 @@ Namebox {
   
    font-weight: bold;
    width: 10vw;
-   color: white;
+   height: 2vw;
+   background-color: lightgrey;
+   color: black;
    margin: 1rem;
    padding: 3px;
+   font-family: SurfingCapital, sans-serif;
+   border-radius: 8px;
+   border: none;
  }
+
+.submit-button:hover {
+
+    background-color: goldenrod;
+    
+}
 
 #contact-title {
     font-size: 5rem;

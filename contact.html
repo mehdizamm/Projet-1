@@ -4,36 +4,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="styles.css" rel="stylesheet">
+    <link href="contact.css" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
     <header>
-        <img id="logo" src="assets/Logo.png">
+        <h1 id="logo">MY DREAM FEST</h1>
     </header>
     <div id="contact-container">
         <div class="left">
-            <img id="contact-title" src="assets/contact-title.png">
+            <p>CONTACT</p>
         </div>
         <div class="right">
                   <div class="form">
                     <form id="submit-form" action="">
 
                       
-                        <div id="Namebox">
+                        
                             <label for="firstname/lastname">Name</label>
-                            <input id="firstname-lastname"  type="text" name="firstname-lastname" minlength="20"  cols="30" rows="7" required placeholder="First Name*"><br>
-                            <input id="firstname-lastname"  type="text" name="firstname-lastname" minlength="20"  cols="30" rows="7" required placeholder="Last Name*">
+                        <div id="Namebox">
+                            <div>
+                              <input class="firstname-lastname"  type="text" name="firstname-lastname"  required placeholder="First Name*">
+                            </div>
+                            <div>
+                              <input class="firstname-lastname"  type="text" name="firstname-lastname"  required placeholder="Last Name*">
+                            </div>
                         </div>
                         
-                    
-                        <label class="contact-label" for="email">Email</label>
-                        <input id="email" class="form-input" type="email" placeholder="Your Email*">
-
+                         <br><br><br><br><br><br>
+                         <div id="email-input">
+                          <label class="contact-label" for="email">Email</label>
+                          <input id="email" class="form-input" type="email" placeholder="Your Email*">
+                        </div>
                         <label class="contact-label" for="message">Message</label>
                         <textarea  minlength="20" id="message" cols="30" rows="7" required></textarea>
                        
-                        <input type="submit" class="submit-button" value="Submit" onclick="checkValidations()">
+                        <button type="submit" class="submit-button" value="Submit" onclick="checkValidations()">Submit</button>
                       
                     </form>
                   </div>
