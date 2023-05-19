@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Surfing Capital";
+    src: url("assets/");
+}
+
 body {
     margin: 0;
     display: flex;
@@ -6,13 +11,23 @@ body {
     min-height: 100vh;
     background-image: url("images/back.jpg");
     cursor: url("images/majeur.png"), auto;
+    background-color: #fff;
+}
+
+#titlegallery {
+    font-family: "Surfing Capital", sans-serif;
+    font-size: 100px;
+    color: black;
+    display: flex;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+
 }
 
 #carousel {
     width: 800px;
     height: 800px;
     border: solid 4px #fff;
-    box-shadow: 0 0 14px rgba(0, 0, 0, 0.3);
     position: relative;
     overflow: hidden;
     display: flex;
@@ -22,7 +37,7 @@ body {
 
 #carousel-container {
     width: 100%;
-    height: 100%;
+    height: 600px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -32,10 +47,11 @@ body {
 }
 
 .photo {
-    width: 400px;
-    height: 400px;
+    max-width: 550px;
+    height: auto;
     margin: 0;
-    object-fit: cover;
+    object-fit: contain;
+
 }
 
 .button {
@@ -48,17 +64,21 @@ body {
 
 #nextbutton {
     bottom: 10px;
-    transform: rotate(90deg);
+    transform: rotate(270deg);
 }
 
 #previousbutton {
     top: 10px;
-    transform: rotate(270deg);
+    transform: rotate(90deg);
 }
 
-#nextbutton:hover,
+#nextbutton:hover {
+    transform: rotate(270deg) scale(1.1);
+    opacity: 1;
+}
+
 #previousbutton:hover {
-    transform: rotate(90deg) scale(1.1);
+    transform: rotate(90deg);
     opacity: 1;
 }
 
@@ -73,4 +93,9 @@ body {
 
 #previousbutton.down {
     transform: rotate(90deg);
+}
+
+.slide {
+    margin: 50px;
+    margin-bottom: 20px;
 }

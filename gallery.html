@@ -9,8 +9,19 @@
     <link rel="stylesheet" href="gallery.css">
 </head>
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="gallery.css">
+</head>
+
 <body>
-    <h1>GALLERY</h1>
+    <h1 id="titlegallery">GALLERY</h1>
     <div id="carousel">
         <div id="carousel-container"></div>
         <img src="images/bouton.png" class="button" id="nextbutton" />
@@ -18,44 +29,52 @@
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const nbr = 3;
-            let p = 0;
+            const images = [
+                "images/im0.jpg",
+                "images/im1.jpg",
+                "images/im2.jpg"
+            ];
+
             const container = document.getElementById("carousel-container");
             const nextbutton = document.getElementById("nextbutton");
             const previousbutton = document.getElementById("previousbutton");
-            container.style.height = (400 * nbr) + "px";
-            for (let i = 1; i <= nbr; i++) {
+            let currentSlide = 0;
+
+            function createSlide(imageUrl) {
+                const slide = document.createElement("div");
+                slide.className = "slide"; // Ajout de la classe "slide"
                 const img = document.createElement("img");
                 img.className = "photo";
-                img.src = "images/im" + i + ".jpg";
-                container.appendChild(img);
+                img.src = imageUrl;
+                slide.appendChild(img);
+                container.appendChild(slide);
             }
-            afficherMasquer();
+
+            function renderCarousel() {
+                container.innerHTML = ""; // Réinitialiser le contenu du conteneur
+
+                for (let i = 0; i < images.length; i++) {
+                    createSlide(images[i]);
+                }
+            }
+
+            renderCarousel();
 
             nextbutton.addEventListener("click", function () {
-                if (p > -nbr + 1)
-                    p--;
-                container.style.transform = "translateY(" + (p * -400) + "px)";
-                afficherMasquer();
+                currentSlide++;
+                if (currentSlide >= images.length) {
+                    currentSlide = 0;
+                }
+                container.style.transform = `translateY(-${currentSlide * 140}%)`;
             });
 
             previousbutton.addEventListener("click", function () {
-                if (p < 0)
-                    p++;
-                container.style.transform = "translateY(" + (p * -400) + "px)";
-                afficherMasquer();
+                currentSlide--;
+                if (currentSlide < 0) {
+                    currentSlide = images.length - 1;
+                }
+                container.style.transform = `translateY(-${currentSlide * 140}%)`;
             });
-
-            function afficherMasquer() {
-                if (p === -nbr + 1)
-                    nextbutton.classList.add("hide");
-                else
-                    nextbutton.classList.remove("hide");
-                if (p === 0)
-                    previousbutton.classList.add("hide");
-                else
-                    previousbutton.classList.remove("hide");
-            }
         });
+
     </script>
-</body>
