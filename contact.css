@@ -1,7 +1,7 @@
 @font-face {
     font-family: SurfingCapital;
     src: url(assets/font/SurfingCapital.ttf);
-  }
+}
 
 * {
     box-sizing: border-box;
@@ -10,8 +10,8 @@
 }
 
 body {
-   width: 100vw;
-   font-family: SurfingCapital, sans-serif;
+    width: 100vw;
+    font-family: SurfingCapital, sans-serif;
 }
 
 #logo {
@@ -23,7 +23,7 @@ body {
 #contact-container {
     display: flex;
     min-height: 100vh;
-   
+
 }
 
 .left {
@@ -34,20 +34,20 @@ body {
 }
 
 .right {
-    
+
     width: 50vw;
     margin: 100px;
-   
+
 }
 
 .form {
-    
+
     border-radius: 10px;
     margin: 60px;
 
- }
+}
 
- 
+
 
 .contact-label {
     display: block;
@@ -58,32 +58,35 @@ body {
   
 } */
 
-.firstname-lastname  {
-    
+.firstname-lastname {
+
     display: block;
     background: linear-gradient(#7e8081, #e2e6e8);
-    margin: 10px;;
+    margin: 10px;
+    ;
     width: 15vw;
     height: 6vh;
     border-radius: 8px;
     border: none;
     padding: 0.5rem;
- }
+}
 
 
-.form-input  {
-    
+.form-input {
+
     display: block;
     background: linear-gradient(#7e8081, #e2e6e8);
-    margin: 10px;;
+    margin: 10px;
+    ;
     width: 30vw;
     height: 6vh;
     border-radius: 8px;
     border: none;
     padding: 0.5rem;
- }
+}
 
- label, input {
+label,
+input {
     display: block;
     float: left;
     margin: auto;
@@ -92,37 +95,37 @@ body {
     border-radius: 8px;
     border: none;
     padding: 1.5rem;
- }
+}
 
- textarea {
-   
+textarea {
+
     text-align: center;
     width: 30vw;
     border-radius: 8px;
     border: none;
     display: block;
     background: linear-gradient(#7e8081, #e2e6e8);
-   
- }
 
- .submit-button {
-  
-   font-weight: bold;
-   width: 10vw;
-   height: 2vw;
-   background-color: lightgrey;
-   color: black;
-   margin: 1rem;
-   padding: 3px;
-   font-family: SurfingCapital, sans-serif;
-   border-radius: 8px;
-   border: none;
- }
+}
+
+.submit-button {
+
+    font-weight: bold;
+    width: 10vw;
+    height: 2vw;
+    background-color: lightgrey;
+    color: black;
+    margin: 1rem;
+    padding: 3px;
+    font-family: SurfingCapital, sans-serif;
+    border-radius: 8px;
+    border: none;
+}
 
 .submit-button:hover {
 
     background-color: goldenrod;
-    
+
 }
 
 #contact-title {
@@ -134,11 +137,11 @@ body {
 }
 
 .contain {
-    
+
     text-align: center;
     margin-top: 50%;
     margin-bottom: 50%;
-    
+
 }
 
 #footer-copyright {
