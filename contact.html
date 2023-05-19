@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="contact.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1 id="logo">MY DREAM FEST</h1>
+    </header>
+    <div id="contact-container">
+        <div class="left">
+            <p>CONTACT</p>
+        </div>
+        <div class="right">
+                  <div class="form">
+                    <form id="submit-form" action="">
+
+                      
+                        
+                            <label for="firstname/lastname">Name</label>
+                        <div id="Namebox">
+                            <div>
+                              <input class="firstname-lastname"  type="text" name="firstname-lastname"  required placeholder="First Name*">
+                            </div>
+                            <div>
+                              <input class="firstname-lastname"  type="text" name="firstname-lastname"  required placeholder="Last Name*">
+                            </div>
+                        </div>
+                        
+                         <br><br><br><br><br><br>
+                         <div id="email-input">
+                          <label class="contact-label" for="email">Email</label>
+                          <input id="email" class="form-input" type="email" placeholder="Your Email*">
+                        </div>
+                        <label class="contact-label" for="message">Message</label>
+                        <textarea  minlength="20" id="message" cols="30" rows="7" required></textarea>
+                       
+                        <button type="submit" class="submit-button" value="Submit" onclick="checkValidations()">Submit</button>
+                      
+                    </form>
+                  </div>
+                </div>
+              </div>
+        </div>
+       
+    </div>
+            <!--<form id="contact-form">
+                 <div>
+                    <label for="firstName">Firstname</label>
+                    <input type="text" name="Prenom/Nom" required placeHolder="Firstname">
+                 </div>
+                 <div>
+                    <label for="Name">Name</label>
+                    <input type="text" name="Prenom/Nom" required placeHolder="Name">
+                 </div>
+                 <div>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" required placeHolder="Jean.Blanc@gmail.com">
+                 </div>
+                 <div>
+                 <label for="contactUs">Contact us</label>
+                 <textarea id="contactUs" name="contactUs" required placeholder="Your message here"></textarea>
+                </div>
+                <button type="submit">Send</button>
+            </form>
+    </div>-->
+      <footer>
+        <p id="footer-copyright">© My Dream Fest</p>
+      </footer>
+</body>
+
+</html>
