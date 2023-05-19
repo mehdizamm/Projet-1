@@ -1,0 +1,153 @@
+@font-face {
+    font-family: SurfingCapital;
+    src: url(assets/font/SurfingCapital.ttf);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100vw;
+    font-family: SurfingCapital, sans-serif;
+}
+
+#logo {
+    margin-left: 40px;
+    width: 300px;
+}
+
+
+#contact-container {
+    display: flex;
+    min-height: 100vh;
+
+}
+
+.left {
+    width: 50vw;
+    margin-left: 40px;
+    margin-top: 300px;
+    font-size: 150px;
+}
+
+.right {
+
+    width: 50vw;
+    margin: 100px;
+
+}
+
+.form {
+
+    border-radius: 10px;
+    margin: 60px;
+
+}
+
+
+
+.contact-label {
+    display: block;
+}
+
+/* .firstname-lastname {
+    display: flex;
+  
+} */
+
+.firstname-lastname {
+
+    display: block;
+    background: linear-gradient(#7e8081, #e2e6e8);
+    margin: 10px;
+    ;
+    width: 15vw;
+    height: 6vh;
+    border-radius: 8px;
+    border: none;
+    padding: 0.5rem;
+}
+
+
+.form-input {
+
+    display: block;
+    background: linear-gradient(#7e8081, #e2e6e8);
+    margin: 10px;
+    ;
+    width: 30vw;
+    height: 6vh;
+    border-radius: 8px;
+    border: none;
+    padding: 0.5rem;
+}
+
+label,
+input {
+    display: block;
+    float: left;
+    margin: auto;
+    width: 30vw;
+    height: 4vh;
+    border-radius: 8px;
+    border: none;
+    padding: 1.5rem;
+}
+
+textarea {
+
+    text-align: center;
+    width: 30vw;
+    border-radius: 8px;
+    border: none;
+    display: block;
+    background: linear-gradient(#7e8081, #e2e6e8);
+
+}
+
+.submit-button {
+
+    font-weight: bold;
+    width: 10vw;
+    height: 2vw;
+    background-color: lightgrey;
+    color: black;
+    margin: 1rem;
+    padding: 3px;
+    font-family: SurfingCapital, sans-serif;
+    border-radius: 8px;
+    border: none;
+}
+
+.submit-button:hover {
+
+    background-color: goldenrod;
+
+}
+
+#contact-title {
+    font-size: 5rem;
+    align-items: center;
+    margin-top: 50%;
+    margin-bottom: 50%;
+    width: 500px;
+}
+
+.contain {
+
+    text-align: center;
+    margin-top: 50%;
+    margin-bottom: 50%;
+
+}
+
+#footer-copyright {
+    position: absolute;
+    width: 100vw;
+    bottom: O;
+    padding: 3px;
+    font-weight: bold;
+}
