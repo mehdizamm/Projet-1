@@ -26,25 +26,6 @@ body {
    
 }
 
-/* #Namebox {
-    display: inline;
-    flex-direction: flex-end; 
-    justify-content: center;
-} */
-
-/* #Namebox :nth-child(2) {
-   display:flex; 
-   position: absolute;
-   top: 125px;
-   right: 280px;
-}
-
-#Namebox :nth-child(1) {
-    display:flex; 
-    position: absolute;
-    top: 125px;
- } */
-
 .left {
     width: 50vw;
     margin-left: 40px;
@@ -72,10 +53,10 @@ body {
     display: block;
 }
 
-/* .firstname-lastname {
+.firstname-lastname {
     display: flex;
   
-} */
+}
 
 .firstname-lastname  {
     
