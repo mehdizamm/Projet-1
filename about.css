@@ -1,6 +1,8 @@
 @font-face {
     font-family: "SurfingCapital";
     src: url(assets/font/SurfingCapital.ttf);
+    font-family: "Cocogoose";
+    src: url(assets/font/CocogooseProLightTrial.ttf);
 }
 
 * {
@@ -12,6 +14,8 @@ h1,
 h2 {
 
     font-family: 'SurfingCapital', sans-serif;
+    color: #FFB224;
+    text-shadow: 1px 1px 2px black;
 }
 
 h4 {
@@ -20,7 +24,7 @@ h4 {
 }
 
 p {
-    font-family: 'Tahoma', sans-serif;
+    font-family: 'Cocogoose', sans-serif;
 }
 
 
@@ -31,8 +35,6 @@ p {
     flex-direction: column;
     justify-content: center;
     margin: 10%;
-
-
 }
 
 .right {
@@ -47,6 +49,7 @@ p {
     flex-direction: column;
     justify-content: center;
     margin: 10%;
+    margin-right: 0;
 }
 
 li {
@@ -61,30 +64,33 @@ ul {
 
 a:not(#gallery-about) {
     text-decoration: none;
-    font-family: 'Gill Sans', 'Gill Sans MT';
-    color: black;
+    font-family: "Cocogoose", 'Gill Sans', 'Gill Sans MT';
+    color: #FFB224;
+    text-shadow: 1px 1px 2px black;
     padding: 23px;
 }
 
 a:hover:not(#gallery-about) {
-    background-color: black;
+    background-color: none;
     color: white;
 
 }
 
 a:hover:not(#logo-dream) {
-    background-color: black;
-    color: white;
+    background-color: #FFB224;
+    color: #05badd;
+    text-shadow: none;
+    border: 1px solid black;
 
 }
 
 #gallery-about:hover {
-    color: turquoise;
+    color: #FFB224;
 }
 
 #mainButton a:hover {
-    color: turquoise;
-    background-color: white;
+    color: black;
+    background-color: none;
 }
 
 #gallery-about {
@@ -93,15 +99,15 @@ a:hover:not(#logo-dream) {
     color: black;
     font-size: 15px;
     text-align: center;
-
 }
 
-#logo-dream p {
+
+/* #logo-dream p {
     font-family: "SurfingCapital", sans-serif;
     font-size: 1rem;
     color: blue;
     border: 2px solid blue;
-}
+} */
 
 #boutonsNavbar {
     width: 100vh;
@@ -112,7 +118,7 @@ a:hover:not(#logo-dream) {
 
 #mainButton a {
     font-family: "SurfingCapital", sans-serif;
-    color: black;
+    color: #FFB224;
     font-size: 2rem;
 }
 
@@ -140,35 +146,17 @@ div {
     flex: auto;
 }
 
-
-/* :root {
-    --bar-width: 60px;
-    --bar-height: 8px;
-    --hamburger-gap: 6px;
-    --foregrounf: #333;
-    --background: white;
-
-    
-    
-    .hamburger-menu::before,
-    .hamburger-menu::after,
-    .hamburger-menu input {
-        content: "";
-        width: var(--bar-width);
-        height: var(--bar-height);
-        background-color: var(--foreground);
-        border-radius: 9999px;
-    } */
-
 .submit-button-about {
     font-family: "SurfingCapital", sans-serif;
-    background-color: black;
+    background-color: fuchsia;
     border-radius: 50%;
     margin: 20vh;
-    padding: 7vh;
+    padding: 5vh;
     border: none;
     color: white;
     overflow: hidden;
+    border: 2px solid black;
+    font-size: 1.5rem;
 
 }
 
@@ -178,4 +166,77 @@ div {
     bottom: O;
     padding: 3px;
     font-weight: bold;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* burger button */
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    background-color: #05badd;
+    overflow: auto;
+}
+
+/* body {
+    background: #e78a53; // Just randomly typed this color
+} */
+
+.menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    transition: 0.5s ease;
+    height: 50px;
+
+    &:hover .bar {
+        box-shadow: 1px 1px 7px 1px RGBa(0, 0, 0, 0.3);
+    }
+
+    .bar {
+        width: 55px;
+        height: 10px;
+        background: black;
+        box-shadow: 1px 1px 3px RGBa(0, 0, 0, 0.4);
+        border-radius: 2px;
+        transition: 0.4s ease;
+
+        &:not(:first-child) {
+            margin-top: 10px;
+        }
+    }
+}
+
+#hi {
+    position: absolute;
+    left: -999px;
+    top: -999px;
+}
+
+#hi:checked+.menu {
+    transform: translate(-50%, -50%) rotatey(180deg);
+
+    .bar {
+        transform: rotatey(180deg) rotatex(360deg);
+
+        &:first-child {
+            transform: rotate(-45deg);
+            margin-top: 20px;
+        }
+
+        &:nth-child(2) {
+            opacity: 0;
+        }
+
+        &:nth-child(3) {
+            margin-top: -30px;
+            transform: rotate(45deg);
+        }
+    }
 }
