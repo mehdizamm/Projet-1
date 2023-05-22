@@ -1,3 +1,16 @@
+// import posterBackgrounds from './canvas.json' assert {type: 'json'};
+// console.log(canvas.name);
+let tableauJSON = [
+  {
+    "name": "Blue",
+    "picture": "../assets/images/pinkbgd"
+  },
+  {
+    "name": "Green",
+    "picture": "https://placekitten.com/200/139"
+  },
+  ];
+
 const inputWidth = document.getElementById("inputWidth");
 const inputHeight = document.getElementById("inputHeight");
 const inputDataUrl = document.getElementById("inputDataUrl");
@@ -27,7 +40,7 @@ document.getElementById("buttonGenerate").addEventListener("click", () => {
   );
   const dataUrl = canvasElement.toDataURL();
 
-  inputDataUrl.value = dataUrl;
+  // inputDataUrl.value = dataUrl;
   imagePreview.src = dataUrl;
   imagePreview.style.display = "block";
   imagePreview.style.maxWidth = `${inputWidth.value}px`;
@@ -58,7 +71,11 @@ function createPlaceholderCanvas(width, height, text) {
   context.fillStyle = "#333333";
   context.textAlign = "center";
   context.textBaseline = "middle";
-  context.fillText(`${width}x${height}x${text}`, element.width / 2, element.height / 2);
+  context.fillText(`${text}`, element.width / 2, element.height / 2);
 
   return element;
 }
+
+const results = On selectionne 5 groupes parmis tout les choix de groupes on y ajoute 
+un fond parmis ceux proposés et enfin on le lui ajoute un titre choisi par l'utilisateur
+5 checkbox sélectionnées maximum, un choix couleur radio rattaché à une image source et un input text de titre"
