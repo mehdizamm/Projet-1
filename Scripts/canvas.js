@@ -2,6 +2,7 @@ const inputWidth = document.getElementById("inputWidth");
 const inputHeight = document.getElementById("inputHeight");
 const inputDataUrl = document.getElementById("inputDataUrl");
 const imagePreview = document.getElementById("imagePreview");
+const inputText = document.getElementById("inputText");
 
 document.getElementById("buttonGenerate").addEventListener("click", () => {
   const MIN_SIDE_LENGTH = 200;
@@ -21,11 +22,11 @@ document.getElementById("buttonGenerate").addEventListener("click", () => {
 
   const canvasElement = createPlaceholderCanvas(
     inputWidth.value,
-    inputHeight.value
+    inputHeight.value,
+    inputText.value
   );
   const dataUrl = canvasElement.toDataURL();
 
-// Modify to insert background on canvas 
   inputDataUrl.value = dataUrl;
   imagePreview.src = dataUrl;
   imagePreview.style.display = "block";
@@ -37,50 +38,27 @@ document.getElementById("buttonGenerate").addEventListener("click", () => {
  *
  * @param {number} width
  * @param {number} height
+ * @param {text} text
  * @returns {HTMLCanvasElement}
  */
-function createPlaceholderCanvas(width, height) {
+function createPlaceholderCanvas(width, height, text) {
   const element = document.createElement("canvas");
   const context = element.getContext("2d");
- 
 
   element.width = width;
   element.height = height;
- 
+  element.text = text;
 
   // Fill in the background
   context.fillStyle = "#aaaaaa";
-  context.fillRect(0, 0, element.width, element.height, element.festName);
+  context.fillRect(0, 0, element.width, element.height);
 
-  // Place the text: Modify to insert festival name
+  // Place the text
   context.font = "bold 90px sans-serif";
   context.fillStyle = "#333333";
   context.textAlign = "center";
   context.textBaseline = "middle";
-  context.fillText(`${width}x${height}`, element.width / 2, element.height / 2);
- 
+  context.fillText(`${width}x${height}x${text}`, element.width / 2, element.height / 2);
+
   return element;
 }
-
-
-  // Color buttons
- 
-  let black= document.querySelector("#black");
-  let pink = document.querySelector('#pink');
-  let blue = document.querySelector('#blue');
-  let green = document.querySelector('#green');
-  let purple = document.querySelector('#purple'); 
-  let yellow = document.querySelector('#yellow');
-  let red = document.querySelector('#red');
-  let brown = document.querySelector('#brown');
- 
-  black.addEventListener("click", () => black.style.backgroundColor = "#0c0c0c")
-  pink.addEventListener("click", () => pink.style.backgroundColor = "#ff00bb")
-  blue.addEventListener('click', () => blue.style.backgroundColor = "#3700ff")
-  purple.addEventListener('click', () =>  purple.style.backgroundColor = "#c300ff")
-  green.addEventListener('click', () =>  green.style.backgroundColor = "#0e8b06")
-  yellow.addEventListener('click', () =>  yellow.style.backgroundColor = "#ffee00")
-  red.addEventListener('click', () =>  red.style.backgroundColor = "#ff2600")
-  brown.addEventListener('click', () =>  brown.style.backgroundColor = "#743403")
- 
- 
