@@ -9,6 +9,10 @@
     box-sizing: border-box;
 }
 
+html {
+    background-color: #05badd;
+    z-index: initials;
+}
 
 h1,
 h2 {
@@ -80,7 +84,7 @@ a:hover:not(#logo-dream) {
     background-color: #FFB224;
     color: #05badd;
     text-shadow: none;
-    border: 1px solid black;
+    border: 1px solid red;
 
 }
 
@@ -168,75 +172,165 @@ div {
     font-weight: bold;
 }
 
+
+
+
+/* boutonburger */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600;700&display=swap');
+
 * {
-    box-sizing: border-box;
-}
-
-/* burger button */
-
-body,
-html {
-    margin: 0;
     padding: 0;
-    background-color: #05badd;
-    overflow: auto;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Teko', sans-serif;
 }
 
-/* body {
-    background: #e78a53; // Just randomly typed this color
+body {
+
+    min-height: 100vh;
+
+}
+
+.fullPageMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #05badd;
+
+    visibility: hidden;
+    z-index: 100;
+
+}
+
+.fullPageMenu.active {
+    top: 0;
+    visibility: visible;
+    z-index: 200;
+}
+
+.fullPageMenu .banner {
+    position: relative;
+    width: 600px;
+    height: 100%;
+}
+
+.fullPageMenu .nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    border: 2px solid red;
+}
+
+.fullPageMenu .nav ul {
+    position: relative;
+}
+
+.fullPageMenu .nav ul li {
+    position: relative;
+    list-style: none;
+    padding: 0 20px;
+    margin: 5px 0;
+    overflow: hidden;
+    display: table;
+}
+
+.fullPageMenu .nav ul li:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    transition: transform 0.5s ease-in-out;
+    transform: scaleY(0);
+    transform-origin: bottom;
+}
+
+.fullPageMenu .nav ul li:hover:before {
+    transition: transform 0.5s ease-in-out;
+    transform: scaleY(1);
+    transform-origin: top;
+}
+
+.fullPageMenu .nav ul li a {
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    font-size: 4em;
+    font-weight: 700;
+    line-height: 1em;
+    display: inline-block;
+    text-transform: uppercase;
+    transition: 0.3s ease-in-out;
+}
+
+.fullPageMenu .nav ul li a:before {
+    content: attr(data-text);
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    color: #FFB224;
+}
+
+.fullPageMenu .nav ul li:hover a {
+    transform: translateY(-100%);
+    color: #05badd;
+}
+
+.menuicon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: red url(https://i.postimg.cc/k4rb3zpp/pngwave.png);
+    background-size: 40px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: 10px;
+    z-index: 300;
+}
+
+.menuicon.active {
+    background: fuchsia url(https://i.postimg.cc/25t1dMY5/pngegg-1.png);
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: 10px;
+}
+
+/* @media(max-width:991px) {
+    .banner {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .list a {
+        font-size: 2rem;
+    }
+
+    #boutonsNavbar {
+        display: none;
+    }
+
 } */
 
-.menu {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    cursor: pointer;
-    transition: 0.5s ease;
-    height: 50px;
+/* @media screen and (min-width: 1000px) {
 
-    &:hover .bar {
-        box-shadow: 1px 1px 7px 1px RGBa(0, 0, 0, 0.3);
+    .menuicon.active,
+    .fullPageMenu {
+        display: none;
     }
 
-    .bar {
-        width: 55px;
-        height: 10px;
-        background: black;
-        box-shadow: 1px 1px 3px RGBa(0, 0, 0, 0.4);
-        border-radius: 2px;
-        transition: 0.4s ease;
-
-        &:not(:first-child) {
-            margin-top: 10px;
-        }
-    }
-}
-
-#hi {
-    position: absolute;
-    left: -999px;
-    top: -999px;
-}
-
-#hi:checked+.menu {
-    transform: translate(-50%, -50%) rotatey(180deg);
-
-    .bar {
-        transform: rotatey(180deg) rotatex(360deg);
-
-        &:first-child {
-            transform: rotate(-45deg);
-            margin-top: 20px;
-        }
-
-        &:nth-child(2) {
-            opacity: 0;
-        }
-
-        &:nth-child(3) {
-            margin-top: -30px;
-            transform: rotate(45deg);
-        }
-    }
-}
+} */

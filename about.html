@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Dream Festival</title>
     <link href="about.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -20,13 +21,7 @@
             <li><a href="gallery.html">Gallery</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
-        <!-- burger button -->
-        <input type="checkbox" id="hi">
-        <label class="menu" for="hi">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </label>
+        </div>
     </nav>
     <div id="about-container">
 
@@ -60,6 +55,24 @@
     </footer>
     <script src="dream.js"></script>
 
+    <!-- burgerbutton -->
+    <div class="fullPageMenu" id="nav">
+        <div class="nav">
+            <ul>
+                <li><a href="about.html" data-text="ABOUT">About</a></li>
+                <li><a href="dream.html" data-text="MY DREAM FEST">My Dream Fest</a></li>
+                <li><a href="gallery.html" data-text="GALLERY">Gallery</a></li>
+                <li><a href="contact.html" data-text="CONTACT">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+    <span class="menuicon" id="toggle"></span>
+    <script src="about.js"></script>
+
 </body>
+
+
+
+
 
 </html>
