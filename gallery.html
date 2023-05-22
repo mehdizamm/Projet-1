@@ -9,53 +9,51 @@
     <link rel="stylesheet" href="gallery.css">
 </head>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="gallery.css">
-</head>
-
 <body>
     <h1 id="titlegallery">GALLERY</h1>
     <div id="carousel">
         <div id="carousel-container"></div>
-        <img src="images/bouton.png" class="button" id="nextbutton" />
-        <img src="images/bouton.png" class="button" id="previousbutton" />
+        <img src="assets/images/bouton.png" class="button" id="nextbutton" />
+        <img src="assets/images/bouton.png" class="button" id="previousbutton" />
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const images = [
-                "images/im0.jpg",
-                "images/im1.jpg",
-                "images/im2.jpg"
+                "assets/images/im0.jpg",
+                "assets/images/im1.jpg",
+                "assets/images/im2.jpg",
+                "assets/images/im3.jpg",
+                "assets/images/im4.jpg",
+                "assets/images/im5.jpg",
+                "assets/images/im6.jpg",
             ];
 
             const container = document.getElementById("carousel-container");
             const nextbutton = document.getElementById("nextbutton");
             const previousbutton = document.getElementById("previousbutton");
             let currentSlide = 0;
+            let slideHeight;
 
             function createSlide(imageUrl) {
                 const slide = document.createElement("div");
-                slide.className = "slide"; // Ajout de la classe "slide"
+                slide.className = "slide";
                 const img = document.createElement("img");
                 img.className = "photo";
                 img.src = imageUrl;
                 slide.appendChild(img);
                 container.appendChild(slide);
+                slideHeight = slide.offsetHeight;
             }
 
             function renderCarousel() {
-                container.innerHTML = ""; // Réinitialiser le contenu du conteneur
+                container.innerHTML = "";
 
                 for (let i = 0; i < images.length; i++) {
                     createSlide(images[i]);
                 }
+
+                slideHeight = container.offsetHeight;
+                container.style.transform = `translateY(-${currentSlide * slideHeight}px)`;
             }
 
             renderCarousel();
@@ -65,7 +63,8 @@
                 if (currentSlide >= images.length) {
                     currentSlide = 0;
                 }
-                container.style.transform = `translateY(-${currentSlide * 140}%)`;
+                const slideDistance = slideHeight + 220;
+                container.style.transform = `translateY(-${currentSlide * slideDistance}px)`;
             });
 
             previousbutton.addEventListener("click", function () {
@@ -73,8 +72,12 @@
                 if (currentSlide < 0) {
                     currentSlide = images.length - 1;
                 }
-                container.style.transform = `translateY(-${currentSlide * 140}%)`;
+                const slideDistance = slideHeight + 220;
+                container.style.transform = `translateY(-${currentSlide * slideDistance}px)`;
             });
         });
 
     </script>
+</body>
+
+</html>
