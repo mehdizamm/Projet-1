@@ -1,15 +1,15 @@
 var bands = [
-  { name: 'Rammstein', logo: '../assets/images/.png' },
-  { name: 'Metalica', logo: '../assets/images/.png' },
-  { name: 'Disturbed', logo: '../assets/images/.png' },
+  { name: 'Rammstein', logo: '../assets/images/Rammstein.png' },
+  { name: 'Metalica', logo: '../assets/images/Metalica.png' },
+  { name: 'Disturbed', logo: '../assets/images/Disturbed.png' },
   { name: 'PNL', logo: '../assets/images/PNL.png' },
   { name: 'Jul', logo: '../assets/images/Jul.png' },
-  { name: 'Scorpion', logo: '../assets/images/.png' },
-  { name: 'Kekra', logo: '../assets/images/kekra.png' },
-  { name: 'the Cure', logo: '../assets/images/.png' },
-  { name: 'Indila', logo: '../assets/images/indila.png' },
+  { name: 'Scorpion', logo: '../assets/images/Scorpion.png' },
+  { name: 'Kekra', logo: '../assets/images/Kekra.png' },
+  { name: 'the Cure', logo: '../assets/images/TheCure.png' },
+  { name: 'Indila', logo: '../assets/images/Indila.png' },
   { name: 'Tiesto', logo: '../assets/images/Tiesto.png' }
-  // Ajoutez d'autres groupes ici
+  // Add more bands here
 ];
 
 var colors = [
@@ -31,9 +31,9 @@ var festivalNameFonts = [
 var bandSelectionDiv = document.getElementById('bandSelection');
 var colorSelectionDiv = document.getElementById('colorSelection');
 var selectedColorButton = null;
-var selectedColorImage = null;
+var loadedLogos = {}; // Pour stocker les logos déjà chargés
 
-// Créer les cases à cocher pour la sélection des groupes
+// Create band selection checkboxes
 bands.forEach(function(band) {
   var label = document.createElement('label');
   var checkbox = document.createElement('input');
@@ -47,12 +47,13 @@ bands.forEach(function(band) {
   bandSelectionDiv.appendChild(label);
 });
 
-// Créer les boutons de sélection des couleurs
+// Create color selection buttons
 colors.forEach(function(color) {
   var button = document.createElement('div');
   button.className = 'colorButton';
   button.style.backgroundColor = color.name.toLowerCase();
   button.dataset.image = color.image;
+
   button.addEventListener('click', function() {
     selectColor(button);
   });
@@ -60,35 +61,109 @@ colors.forEach(function(color) {
   colorSelectionDiv.appendChild(button);
 });
 
-function selectColor(button) {
+function selectColor(colorButton) {
   var buttons = document.getElementsByClassName('colorButton');
   for (var i = 0; i < buttons.length; i++) {
     buttons[i].classList.remove('selected');
   }
 
-  if (selectedColorImage) {
-    selectedColorImage.parentNode.removeChild(selectedColorImage);
-    selectedColorImage = null;
-  }
+  colorButton.classList.add('selected');
+  selectedColorButton = colorButton;
 
-  button.classList.add('selected');
-  selectedColorButton = button;
+  var canvas = document.getElementById('posterCanvas');
+  var context = canvas.getContext('2d');
 
-  var colorImage = new Image();
-  colorImage.src = button.dataset.image;
-  colorImage.onload = function() {
-    selectedColorImage = document.createElement('img');
-    selectedColorImage.src = button.dataset.image;
-    selectedColorImage.style.display = 'none';
-    document.body.appendChild(selectedColorImage);
+  context.clearRect(0, 0, canvas.width, canvas.height); // Effacer le canvas
+
+  var image = new Image();
+  image.src = colorButton.dataset.image;
+
+  image.onload = function() {
+    context.drawImage(image, 0, 0, canvas.width, canvas.height);
   };
 }
 
-function clearColorImage() {
-  if (selectedColorImage) {
-    selectedColorImage.parentNode.removeChild(selectedColorImage);
-    selectedColorImage = null;
+document.getElementById('posterForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  var bands = document.querySelectorAll('input[name="band"]:checked');
+  if (bands.length !== 5) {
+    alert('Please select exactly 5 bands.');
+    return;
   }
+
+  var festivalName = document.querySelector('input[name="festivalName"]').value;
+  if (festivalName.trim() === '') {
+    alert('Please enter your festival name.');
+    return;
+  }
+
+  if (!selectedColorButton) {
+    alert('Please select a background color.');
+    return;
+  }
+
+  var selectedBands = [];
+  for (var i = 0; i < bands.length; i++) {
+    selectedBands.push(bands[i].value);
+  }
+
+  var posterCanvas = document.getElementById('posterCanvas');
+  var context = posterCanvas.getContext('2d');
+
+  // Clear canvas
+  context.clearRect(0, 0, posterCanvas.width, posterCanvas.height);
+
+  // Draw background image
+  var backgroundImage = new Image();
+  backgroundImage.src = selectedColorButton.dataset.image;
+
+  backgroundImage.onload = function() {
+    context.drawImage(backgroundImage, 0, 0, posterCanvas.width, posterCanvas.height);
+
+    var loadedCount = 0; // Compteur des logos chargés
+
+    // Fonction de rappel pour charger les logos
+    function loadLogo(bandName, index) {
+      var logo = new Image();
+      logo.src = getLogoPath(bandName);
+
+      logo.onload = function() {
+        loadedCount++;
+
+        if (loadedCount === selectedBands.length) {
+          // Tous les logos sont chargés
+          drawPoster();
+        }
+      };
+
+      loadedLogos[index] = logo; // Stocker le logo chargé
+    }
+
+    // Charger tous les logos des groupes sélectionnés
+    selectedBands.forEach(function(bandName, index) {
+      if (loadedLogos[index]) {
+        // Utiliser le logo déjà chargé
+        loadedCount++;
+
+        if (loadedCount === selectedBands.length) {
+          // Tous les logos sont chargés
+          drawPoster();
+        }
+      } else {
+        // Charger le logo
+        loadLogo(bandName, index);
+      }
+    });
+  };
+});
+
+function getLogoPath(bandName) {
+  var selectedBand = bands.find(function(band) {
+    return band.name === bandName;
+  });
+
+  return selectedBand ? selectedBand.logo : '';
 }
 
 function drawPoster() {
@@ -97,102 +172,58 @@ function drawPoster() {
   var posterCanvas = document.getElementById('posterCanvas');
   var context = posterCanvas.getContext('2d');
 
+  // Draw background image
   var backgroundImage = new Image();
   backgroundImage.src = selectedColorButton.dataset.image;
 
   backgroundImage.onload = function() {
     context.drawImage(backgroundImage, 0, 0, posterCanvas.width, posterCanvas.height);
 
+    // Shuffle the bands array randomly
+    var shuffledBands = Array.from(bands).sort(function() {
+      return 0.5 - Math.random();
+    });
+
+    // Draw festival name
+    var fontSize = 48;
+    var fontFamily = festivalNameFonts[Math.floor(Math.random() * festivalNameFonts.length)];
+    context.fillStyle = '#ffffff';
+    context.font = fontSize + 'px ' + fontFamily;
+    context.textAlign = 'center';
+    context.fillText(festivalName, posterCanvas.width / 2, 100);
+
+    // Draw band logos
     var logoSize = 100;
-    var logoSpacing = 40;
-    var availablePositions = generateAvailablePositions(posterCanvas.width, posterCanvas.height, logoSpacing, bands.length);
-    var usedPositions = [];
+    var logoSpacing = 20;
+    var startY = 200;
+    var margin = 20; // Margin to keep logos away from the edges
 
-    // Mélange aléatoire des groupes sélectionnés
-    var selectedBands = Array.from(bands);
-    selectedBands.sort(function() { return 0.5 - Math.random() });
+    for (var j = 0; j < shuffledBands.length; j++) {
+      var bandName = shuffledBands[j].value;
+      var bandLogo = loadedLogos[j];
 
-    function checkLogoOverlap(position) {
-      var festivalNameHeight = 100;
-      var festivalNamePadding = 20;
-      var maxLogoY = posterCanvas.height - festivalNameHeight - festivalNamePadding;
-      var festivalNameBottom = festivalNamePosition.y - festivalNamePadding;
+      var logoX = getRandomX(margin, posterCanvas.width - logoSize - margin);
+      var logoY = getRandomY(startY, posterCanvas.height - logoSize - margin);
 
-      if (position.y <= festivalNameBottom && position.y + logoSize >= festivalNameBottom) {
-        position.y = festivalNameBottom + festivalNamePadding;
-      }
+      context.drawImage(bandLogo, logoX, logoY, logoSize, logoSize);
     }
 
-    function getRandomPosition(availablePositions, usedPositions) {
-      var position = availablePositions[Math.floor(Math.random() * availablePositions.length)];
-      var index = availablePositions.indexOf(position);
-      availablePositions.splice(index, 1);
-      usedPositions.push(position);
-      return position;
-    }
-
-    function drawFestivalName() {
-      var fontSize = 48;
-      var festivalNamePosition = { x: posterCanvas.width / 2, y: 100 };
-      var fontFamily = festivalNameFonts[Math.floor(Math.random() * festivalNameFonts.length)];
-      context.fillStyle = '#ffffff';
-      context.font = fontSize + 'px ' + fontFamily;
-      context.textAlign = 'center';
-      context.fillText(festivalName, festivalNamePosition.x, festivalNamePosition.y);
-    }
-
-    function generatePoster() {
-      var link = document.createElement('a');
-      link.href = posterCanvas.toDataURL('image/jpeg');
-      link.download = 'festival_poster.jpg';
-      link.click();
-    }
-
-    function drawLogo(index) {
-      var band = selectedBands[index];
-      var bandLogo = new Image();
-      bandLogo.src = getLogoPath(band.value);
-      bandLogo.onload = function() {
-        var position = getRandomPosition(availablePositions, usedPositions);
-        usedPositions.push(position);
-
-        checkLogoOverlap(position);
-
-        context.drawImage(bandLogo, position.x, position.y, logoSize, logoSize);
-
-        if (index === selectedBands.length - 1) {
-          drawFestivalName();
-          generatePoster();
-        } else {
-          drawLogo(index + 1);
-        }
-      };
-    }
-
-    drawLogo(0);
+    // Export as JPEG
+    var link = document.createElement('a');
+    link.href = posterCanvas.toDataURL('image/jpeg');
+    link.download = 'poster.jpg';
+    link.click();
   };
 }
 
-function generateAvailablePositions(canvasWidth, canvasHeight, logoSize, logoSpacing) {
-  var availablePositions = [];
-  var columns = Math.floor(canvasWidth / (logoSize + logoSpacing));
-  var rows = Math.floor(canvasHeight / (logoSize + logoSpacing));
-
-  for (var i = 0; i < columns; i++) {
-    for (var j = 0; j < rows; j++) {
-      var x = i * (logoSize + logoSpacing) + logoSpacing;
-      var y = j * (logoSize + logoSpacing) + logoSpacing;
-      availablePositions.push({ x: x, y: y });
-    }
-  }
-
-  return availablePositions;
+function getRandomX(min, max) {
+  min = min || 0;
+  max = max || 0;
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function getLogoPath(bandName) {
-  var band = bands.find(function(band) {
-    return band.name === bandName;
-  });
-
-  return band ? band.logo : '';
+function getRandomY(min, max) {
+  min = min || 0;
+  max = max || 0;
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
