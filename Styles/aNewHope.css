@@ -1,0 +1,49 @@
+{ name: 'Band 1', logo: 'path/to/band1_logo.png' },
+    { name: 'Band 2', logo: 'path/to/band2_logo.png' },
+    { name: 'Band 3', logo: 'path/to/band3_logo.png' },
+    { name: 'Band 4', logo: 'path/to/band4_logo.png' },
+    { name: 'Band 5', logo: 'path/to/band5_logo.png' },
+body {
+    font-family: Arial, sans-serif;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  form {
+    margin-bottom: 20px;
+  }
+
+  fieldset {
+    margin-bottom: 10px;
+  }
+
+  label {
+    display: block;
+  }
+
+  canvas {
+    border: 1px solid #000;
+    display: block;
+    margin: 0 auto;
+  }
+
+  #bandSelection {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+  }
+
+  #colorSelection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .colorButton {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+  }

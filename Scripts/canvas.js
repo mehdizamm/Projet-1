@@ -1,16 +1,3 @@
-// import posterBackgrounds from './canvas.json' assert {type: 'json'};
-// console.log(canvas.name);
-let tableauJSON = [
-  {
-    "name": "Blue",
-    "picture": "../assets/images/pinkbgd"
-  },
-  {
-    "name": "Green",
-    "picture": "https://placekitten.com/200/139"
-  },
-  ];
-
 const inputWidth = document.getElementById("inputWidth");
 const inputHeight = document.getElementById("inputHeight");
 const inputDataUrl = document.getElementById("inputDataUrl");
@@ -76,6 +63,3 @@ function createPlaceholderCanvas(width, height, text) {
   return element;
 }
 
-const results = On selectionne 5 groupes parmis tout les choix de groupes on y ajoute 
-un fond parmis ceux proposés et enfin on le lui ajoute un titre choisi par l'utilisateur
-5 checkbox sélectionnées maximum, un choix couleur radio rattaché à une image source et un input text de titre"
