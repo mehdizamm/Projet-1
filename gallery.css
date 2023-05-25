@@ -178,6 +178,7 @@
 
      .navgallery {
          text-align: center;
+         display: none;
      }
 
      #boutonsNavbar {
