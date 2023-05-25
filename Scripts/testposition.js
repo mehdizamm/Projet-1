@@ -1,3 +1,19 @@
+const toggleButton = document.getElementById("toggle");
+const fullPageMenu = document.querySelector(".fullPageMenu");
+
+let isOpen = false;
+
+const handleToggle = () => {
+    isOpen = !isOpen;
+
+    if (isOpen) {
+        fullPageMenu.classList.add("active");
+    } else {
+        fullPageMenu.classList.remove("active");
+    }
+};
+
+toggleButton.addEventListener("click", handleToggle);
 const bands = [
   { name: 'Aerosmith', logo: '../assets/images/Aerosmith.png' },
   { name: 'Metallica', logo: '../assets/images/Metallica.png' },
@@ -9,16 +25,17 @@ const bands = [
   { name: 'PinkFloyd', logo: '../assets/images/PinkFloyd.png' },
   { name: 'Indila', logo: '../assets/images/Indila.png' },
   { name: 'Tiesto', logo: '../assets/images/Tiesto.png' },
-  { name: 'AvengedSevenfold', logo: '../assets/images/AvengedSevenfold.png' }
+  { name: 'AvengedSevenfold', logo: '../assets/images/AvengedSevenfold.png' },
+  { name: 'Gojira', logo: '../assets/images/Gojira.png' },
   // Add more bands here
 ];
 
 const colors = [
-  { name: 'Black', image: '../assets/images/blackbgd.jpeg' },
-  { name: 'Yellow', image: 'path/to/yellow_image.png' },
-  { name: 'Pink', image: '../assets/images/pinkbgd.jpeg' },
-  { name: 'Blue', image: '../assets/images/bluebgd.jpeg' },
-  { name: 'Red', image: 'path/to/red_image.png' },
+  { name: 'Black', image: '../assets/images/blackBtn.png' },
+  { name: 'Yellow', image: '../assets/images/yellowBtn.png' },
+  { name: 'Pink', image: '../assets/images/pinkBtn.png' },
+  { name: 'Blue', image: '../assets/images/blueBtn.png' },
+  { name: 'Red', image: '../assets/images/redBtn.png' },
 ];
 
 const festivalNameFonts = [
@@ -193,12 +210,12 @@ function drawPoster() {
     });
 
     // Draw festival name
-    const fontSize = 48;
+    const fontSize = 60;
     const fontFamily = festivalNameFonts[Math.floor(Math.random() * festivalNameFonts.length)];
-    context.fillStyle = '#ffffff';
     context.font = `${fontSize}px ${fontFamily}`;
     context.textAlign = 'center';
-    context.fillText(festivalName, posterCanvas.width / 2, 100);
+    context.fillStyle = 'turquoise';
+    context.fillText(festivalName, posterCanvas.width / 2, 200);
 
     // Draw band logos
     const logoSize = 150;
@@ -243,6 +260,7 @@ function drawPoster() {
       logoPositions.push({ x, y });
     }
   };
+  window.scrollTo(2720, 2720);
 }
 
 // Share button click event
@@ -289,5 +307,5 @@ resetButton.addEventListener('click', function() {
   document.getElementById('shareBtn').disabled = true;
 
   // Scroll to top
-  window.scrollTo(0, 0);
+  window.scrollTo(500, 500);
 });

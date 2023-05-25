@@ -1,39 +1,346 @@
-{ name: 'Band 1', logo: 'path/to/band1_logo.png' },
+/* @font-face {
+  font-family: SurfingCapital;
+  src: url(../assets/fonts/SurfingCapital.ttf);
+}
+@font-face {
+  font-family: CocogooseProLighttrial;
+  src: url(../assets/fonts/CocogooseProLighttrial.ttf);
+} */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: rgb(240, 236, 236);
+  z-index: initials;
+  display: block;
+  align-items: center;
+}
+
+#logo-dream {
+  color: black;
+  font-size: 1.5rem;
+}
+
+#logo-dream:hover {
+  color: turquoise;
+  font-size: 1.5rem;
+}
+
+h1,
+h2 {
+
+  font-family: 'SurfingCapital', sans-serif;
+  color: black;
+  text-align: center;
+  padding: 30px;
+  margin: 50px;
+  
+}
+
+h4 {
+  font-family: 'SurfingCapital', sans-serif;
+  font-size: 15px;
+}
+
+p {
+  font-family: 'Cocogoose', sans-serif;
+}
+
+li {
+  box-sizing: border-box;
+  list-style-type: none;
+  display: inline;
+  
+}
+
+ul {
+  font-size: 3vh;
+}
+
+
+a {
+  text-decoration: none;
+  font-family: 'SurfingCapital', sans-serif;
+  color: turquoise;
+  padding: 23px;
+  text-shadow:
+      -1px 0px 0px black,
+      1px 0px 0px black,
+      0px -1px 0px black,
+      0px 1px 0px black;
+}
+
+
+#boutonsNavbar a:hover {
+  color: black;
+}
+
+#boutonsNavbar {
+  font-family: "SurfingCapital", sans-serif;
+  width: 100vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#mainButton a:hover {
+  color: turquoise;
+  background-color: none;
+}
+
+#mainButton a {
+  display: flex;
+  justify-content: flex-start;
+  font-family: "SurfingCapital", sans-serif;
+  color: turquoise;
+  font-size: 4rem;
+  text-shadow:
+        -1px 0px 0px black,
+        1px 0px 0px black,
+        0px -1px 0px black,
+        0px 1px 0px black;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  overflow: hidden;
+  height: 3rem;
+  margin-top: 5px;
+}
+
+#logo-nav{
+  font-size: 30px;
+  font-family: "SurfingCapital", sans-serif;
+  color: turquoise;
+}
+
+
+
+/* boutonburger */
+.fullPageMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  transition: 0.3s;
+  visibility: hidden;
+  z-index: 100;
+
+}
+
+.fullPageMenu.active {
+  top: 0;
+  visibility: visible;
+  z-index: 200;
+}
+
+.fullPageMenu .banner {
+  position: relative;
+  width: 600px;
+  height: 100%;
+}
+
+.fullPageMenu .nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.fullPageMenu .nav ul {
+  position: relative;
+}
+
+.fullPageMenu .nav ul li {
+  position: relative;
+  list-style: none;
+  padding: 0 20px;
+  margin: 5px 0;
+  overflow: hidden;
+  display: table;
+}
+
+.fullPageMenu .nav ul li:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  transition: transform 0.3s ease-in-out;
+  transform: scaleY(0);
+  transform-origin: bottom;
+}
+
+.fullPageMenu .nav ul li:hover:before {
+  transition: transform 0.5s ease-in-out;
+  transform: scaleY(1);
+  transform-origin: top;
+}
+
+.fullPageMenu .nav ul li a {
+  font-family: "SurfingCapital", sans-serif;
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+  font-size: 4em;
+  font-weight: 700;
+  line-height: 1em;
+  display: inline-block;
+  text-transform: uppercase;
+  transition: 0.3s ease-in-out;
+}
+
+.fullPageMenu .nav ul li a:before {
+  content: attr(data-text);
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  color: turquoise;
+}
+
+.fullPageMenu .nav ul li:hover a {
+  transform: translateY(-100%);
+  color: grey;
+}
+
+.menuicon {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background: turquoise url(https://cdn.icon-icons.com/icons2/2024/PNG/512/lines_menu_burger_icon_123889.png);
+  background-size: 40px;
+  cursor: pointer;
+  border-radius: 30px;
+  background-repeat: no-repeat;
+  background-position: 10px;
+  z-index: 300;
+}
+
+.menuicon.active {
+  background: fuchsia url(https://i.postimg.cc/25t1dMY5/pngegg-1.png);
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: 10px;
+}
+
+
+/* form */
+
+#formContainer, #canvasContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+#posterForm {
+  margin: 40px;
+}
+
+#createTitle {
+  font-size: 80px;
+  padding: 50px;
+  margin-top: 150px;
+  text-shadow:
+  -1px 0px 0px turquoise,
+      1px 0px 0px turquoise,
+      0px -1px 0px turquoise,
+      0px 1px 0px turquoise;
+}
+
+legend {
+  font-family: "Cocogoose", 'Gill Sans', 'Gill Sans MT';
+  font-size: 45px;
+  color: turquoise;
+  text-shadow: -1px 0px 0px black, 1px 0px 0px black, 0px -1px 0px black, 0px 1px 0px black;
+  text-align: center;
+}
+
+
+  /*  { name: 'Band 1', logo: 'path/to/band1_logo.png' },
     { name: 'Band 2', logo: 'path/to/band2_logo.png' },
     { name: 'Band 3', logo: 'path/to/band3_logo.png' },
     { name: 'Band 4', logo: 'path/to/band4_logo.png' },
     { name: 'Band 5', logo: 'path/to/band5_logo.png' },
-body {
-    font-family: Arial, sans-serif;
-  }
+*/
+
 
   h1 {
     text-align: center;
   }
 
-  form {
-    margin-bottom: 20px;
-  }
-
   fieldset {
     margin-bottom: 10px;
+    background-color: white;
+    border-radius: 30px;
+    padding: 80px;
+    margin: 50px;
+    border: none;
+   
+
   }
 
-  label {
-    display: block;
+  #festivalField {
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    
   }
 
-  canvas {
-    border: 1px solid #000;
-    display: block;
-    margin: 0 auto;
+  #festivalName{
+    width: 55vw; 
+    height: 4vw;
+    border-radius: 15px;
+
   }
 
   #bandSelection {
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 500px));
+    gap: 20px;
+    justify-content: center;
   }
+
+  #bandSelection label {
+    font-size: 28px; 
+ 
+  }
+
+  label {
+    font-family: 'SurfingCapital', sans-serif;
+    height: 100%;
+    display: block;
+    background: turquoise;
+    border: 2px solid turquoise;
+    border-radius: 20px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    margin: 1rem;
+    text-align: center;
+    box-shadow: 0px 3px 10px -2px turquoise;
+    position: relative;
+    align-items: center;
+  }
+
+  
+/* Colored buttons */
 
   #colorSelection {
     display: flex;
@@ -42,8 +349,280 @@ body {
   }
 
   .colorButton {
-    width: 50px;
-    height: 50px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     cursor: pointer;
   }
+
+  .colorButton:hover {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: 0px 3px 10px -2px rgb(3, 3, 3);
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+    transform: scale(1.1);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+  }
+
+/* Button generating poster */
+
+  #button-field {
+    display: flex;
+    justify-content: center;
+    margin: 200px;
+   
+
+  }
+  #buttonPoster {
+
+    font-family: 'SurfingCapital', sans-serif;
+    color: black;
+    background-color:turquoise;
+    text-shadow:
+        -1px 0px 0px black,
+        1px 0px 0px black,
+        0px -1px 0px black,
+        0px 1px 0px black;
+   
+    border-radius: 15px;
+    padding: 15px 40px;
+    font-size: 40px;
+    border: none;
+    box-shadow: 0px 3px 20px -2px rgb(0, 0, 0);
+   
+  }
+
+  #buttonPoster:hover {
+
+    transition: all .3s ease-in-out;
+    transform: scale(1.1);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    color: #F4D74B;
+  }
+
+  /*Canvas and buttons*/
+
+ #canvasContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  margin-bottom: 20%;
+ 
+ }
+
+ canvas {
+  border: 1px solid #000;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0px 3px 20px -2px rgb(0, 0, 0);
+ 
+}
+
+#canvas, #buttons {
+
+  display: flex;
+  flex-direction: reverse-raw;
+  justify-content: center;
+  margin-bottom: 50px;
+  
+}
+
+ #resetBtn {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'SurfingCapital', sans-serif;
+  font-size: 1.5rem;
+  background-color: fuchsia;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  box-shadow: 0px 3px 20px -2px fuchsia;
+  border: none;
+  cursor: pointer;
+  padding: 50px;
+  margin: 10px;
+ 
+ }
+
+ #shareBtn {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'SurfingCapital', sans-serif;
+  font-size: 1.5rem;
+  background-color: rgb(1, 229, 96);
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  box-shadow: 0px 3px 20px -2px rgb(1, 229, 96);
+  border: none;
+  cursor: pointer;
+  padding: 50px;
+  margin: 10px;
+ 
+ }
+
+ #shareBtn:hover {
+
+  color: #F4D74B;
+  text-shadow:
+  -1px 0px 0px black,
+  1px 0px 0px black,
+  0px -1px 0px black,
+  0px 1px 0px black;
+  transition: all .5s ease-in-out;
+  transform: scale(1.2);
+ }
+
+ #resetBtn:hover {
+
+  color: #F4D74B;
+  text-shadow:
+  -1px 0px 0px black,
+  1px 0px 0px black,
+  0px -1px 0px black,
+  0px 1px 0px black;
+  transition: all .5s ease-in-out;
+  transform: scale(1.2);
+ }
+
+#footer-copyright {
+  
+  /* position: relative; */
+  display:inline-block;
+  width: 30vw;
+  bottom: O;
+  padding: 3px;
+  font-weight: bold;
+  color: turquoise;
+  text-shadow:
+      -1px 0px 0px black,
+      1px 0px 0px black,
+      0px -1px 0px black,
+      0px 1px 0px black;
+  margin: 0;
+}
+
+
+@media screen and (max-width: 1000px) {
+
+  .list a {
+      font-size: 2rem;
+  }
+
+  #boutonsNavbar {
+      display: none;
+  }
+
+  .menuicon {
+      display: initial;
+  }
+
+  #about-container {
+      
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+  }
+ #canvas, #buttons {
+
+  display: flex;
+  flex-direction: reverse-raw;
+  justify-content: center;
+  margin-bottom: 50px;
+  
+}
+
+   #resetBtn {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    margin: 10px;
+  
+   
+   }
+  
+   #shareBtn {
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    margin: 10px;
+   
+   }
+
+   #shareBtn {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    background-color: rgb(1, 229, 96);
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    box-shadow: 0px 3px 20px -2px rgb(1, 229, 96);
+    border: none;media
+    cursor: pointer;
+    padding: 50px;
+    margin: 10px;
+   
+   }
+
+   .colorButton {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    cursor: pointer;
+  }
+
+  #createNow a {
+    size: 30vw;
+}
+
+.right {
+    width: auto;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    border-radius: 80px;
+    margin: 2%;
+    margin-bottom: 20vh;
+}
+
+.left {
+    width: auto;
+}
+
+footer {
+    /* position: absolute; */
+    display:inline-block;
+    bottom: 0;
+    /* width: 30vw; */
+}
+  
+
+}
+
+@media screen and (min-width: 1000px) {
+
+
+  .menuicon {
+      display: none;
+  }
+
+  
+}

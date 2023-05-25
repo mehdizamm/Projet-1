@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name ="viemport" content="width=device-width, initial-scale=1.0" />
   <title>Create Your Dream Festival Poster</title>
-  <link rel="stylesheet" type="text/css" href="../Styles/Test.css">
+  <link rel="stylesheet" type="text/css" href="../Styles/aNewHope.css">
 </head>
 <body>
 
@@ -18,6 +19,19 @@
     </ul>
   </nav>
 
+  <!-- burgerbutton -->
+  <div class="fullPageMenu" id="nav">
+    <div class="nav">
+        <ul>
+            <li><a href="about.html" data-text="About">About</a></li>
+            <li><a href="dream.html" data-text="My Dream Fest">My Dream Fest</a></li>
+            <li><a href="gallery.html" data-text="Gallery">Gallery</a></li>
+            <li><a href="contact.html" data-text="Contact">Contact</a></li>
+        </ul>
+    </div>
+</div>
+<span class="menuicon" id="toggle"></span>
+
 <div id="formContainer">
     <h1 id="createTitle">Create Your Dream Festival Poster</h1>
 
@@ -30,36 +44,40 @@
       </div>
     </fieldset>
 
- <fieldset id="festivalField">
-        <legend>Enter Your Festival Name</legend>
-        <input id="festivalName" type="text" name="festivalName" placeholder="    Enter your Fest name here!" >
-      </fieldset>
-
     <fieldset>
       <legend>Select Poster Background Color:</legend>
       <div id="colorSelection">
         <!-- Color buttons will be dynamically added here -->
       </div>
     </fieldset>
+
+    <fieldset id="festivalField">
+      <legend>Enter Your Festival Name</legend>
+      <input id="festivalName" type="text" name="festivalName" placeholder="    Enter your Fest name here!" >
+    </fieldset>
     <div id="button-field">
       <button type="submit" id="buttonPoster">Create Poster</button>
     </div>
   </form>
-
+  
 <fieldset id="canvasContainer">
 
-  <button id="resetBtn" type="submit" >Reset!</button>
-
+  <div id="canvas">
   <canvas id="posterCanvas" width="600" height="800"></canvas>
+  </div>  
+  <div id="buttons">
+    <button id="resetBtn" type="submit" >Reset!</button>
+    <button id="shareBtn" type="submit">Share!</button>
+  </div>
 
-  <button id="shareBtn" type="submit">Share!</button>
 
 </fieldset>
 </div>
 
-  <script src="../Scripts/testposition.js"></script>
   <footer>
     <h4 id="footer-copyright">© My Dream Fest</h4>
 </footer>
+<script src="../Scripts/testposition.js"></script>
 </body>
 </html>
+
