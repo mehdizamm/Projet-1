@@ -11,12 +11,78 @@
      min-height: 100vh;
      background-image: url("assets/images/back.jpg");
      cursor: url("assets/images/majeur.png"), auto;
-     background-color: #fff;
+     background-color: rgb(240, 236, 236);
+ }
+
+ a:not(#gallery-about) {
+     text-decoration: none;
+     font-family: 'Gill Sans', 'Gill Sans MT';
+     color: black;
+     padding: 23px;
+ }
+
+ a:hover:not(#gallery-about) {
+     background-color: black;
+     color: white;
+
+ }
+
+ a:hover:not(#logo-dream) {
+     background-color: black;
+     color: white;
+
+ }
+
+ #gallery-about:hover {
+     color: turquoise;
+ }
+
+ #mainButton a:hover {
+     color: turquoise;
+     background-color: white;
+ }
+
+ #gallery-about {
+     text-decoration: none;
+     font-family: "SurfingCapital", sans-serif;
+     color: black;
+     font-size: 15px;
+     text-align: center;
+
+ }
+
+ #logo-dream p {
+     font-family: "SurfingCapital", sans-serif;
+     font-size: 1rem;
+     color: blue;
+     border: 2px solid blue;
+ }
+
+ #boutonsNavbar {
+     width: 100vh;
+     display: flex;
+     justify-content: flex-end;
+     align-items: center;
+ }
+
+ #mainButton a {
+     font-family: "SurfingCapital", sans-serif;
+     color: black;
+     font-size: 2rem;
+ }
+
+ .navgallery {
+     position: fixed;
+     top: 0%;
+     display: flex;
+     justify-content: center;
+     width: auto;
+     overflow: hidden;
  }
 
  #titlegallery {
      font-family: "Surfing Capital", sans-serif;
-     font-size: 100px;
+     font-size: 10vh;
      color: black;
      display: flex;
      writing-mode: vertical-lr;
@@ -24,9 +90,9 @@
  }
 
  #carousel {
-     width: 800px;
-     height: 800px;
-     border: solid 4px #fff;
+     width: 80%;
+     height: 85vh;
+     border: solid 4px rgb(240, 236, 236);
      position: relative;
      overflow: hidden;
      display: flex;
@@ -46,9 +112,8 @@
  }
 
  .photo {
-     max-width: 550px;
+     max-width: 58vh;
      height: auto;
-     margin: 0;
      object-fit: contain;
  }
 
@@ -96,4 +161,43 @@
  .slide {
      margin: 50px;
      margin-bottom: 20px;
+ }
+
+ #footer-copyright {
+     position: fixed;
+     width: 100vw;
+     left: 25%;
+     bottom: 0%;
+     padding: 3px;
+     font-weight: bold;
+ }
+
+ @media screen and (max-width: 768px) {
+
+     /* Styles spécifiques pour les écrans de largeur maximale de 768px */
+
+     .navgallery {
+         text-align: center;
+     }
+
+     #boutonsNavbar {
+         display: block;
+     }
+
+     #boutonsNavbar li {
+         margin-bottom: 10px;
+     }
+
+     #carousel {
+         width: 90%;
+         height: 60vh;
+     }
+
+     .photo {
+         max-width: 90vw;
+     }
+
+     #titlegallery {
+         font-size: 60px;
+     }
  }

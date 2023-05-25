@@ -173,9 +173,9 @@ div {
 }
 
 #footer-copyright {
-    position: absolute;
+
     width: 100vw;
-    bottom: O;
-    padding: 3px;
+    bottom: 0%;
+    padding: 100000px;
     font-weight: bold;
 }

@@ -10,12 +10,40 @@
 </head>
 
 <body>
+    <nav class="navgallery">
+        <div id="mainButton">
+            <p><a id="logo-dream" href="about.html">MyDreamFest</a></p>
+        </div>
+        <ul id="boutonsNavbar">
+            <li><a href="about.html">About</a></li>
+            <li><a href="dream.html">My Dream Fest</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <!-- Test bouton burger -->
+
+        <!-- <label class="hamburger-menu">
+            <input type="checkbox">
+        </label>
+        <aside class="sidebar">
+            <nav>
+                <div>This</div>
+                <div>Is</div>
+                <div>The</div>
+                <div>Sidebar</div>
+            </nav>
+        </aside> -->
+    </nav>
     <h1 id="titlegallery">GALLERY</h1>
     <div id="carousel">
         <div id="carousel-container"></div>
         <img src="assets/images/bouton.png" class="button" id="nextbutton" />
         <img src="assets/images/bouton.png" class="button" id="previousbutton" />
     </div>
+    <footer>
+        <h4 id="footer-copyright">© My Dream Fest</h4>
+    </footer>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const images = [
