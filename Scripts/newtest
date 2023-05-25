@@ -136,9 +136,6 @@ document.getElementById('posterForm').addEventListener('submit', function(event)
         if (loadedCount === selectedBands.length) {
           // Tous les logos sont chargés
           drawPoster();
-
-          // Activer le bouton "share" une fois que le poster est généré
-          document.getElementById('shareBtn').disabled = false;
         }
       };
 
@@ -154,9 +151,6 @@ document.getElementById('posterForm').addEventListener('submit', function(event)
         if (loadedCount === selectedBands.length) {
           // Tous les logos sont chargés
           drawPoster();
-
-          // Activer le bouton "share" une fois que le poster est généré
-          document.getElementById('shareBtn').disabled = false;
         }
       } else {
         // Charger le logo
@@ -245,20 +239,6 @@ function drawPoster() {
   };
 }
 
-// Share button click event
-document.getElementById('shareBtn').addEventListener('click', function() {
-  const posterCanvas = document.getElementById('posterCanvas');
-  const dataURL = posterCanvas.toDataURL(); // Convert canvas to data URL
-
-  // Create a temporary link element
-  const link = document.createElement('a');
-  link.href = dataURL;
-  link.download = 'poster.png'; // Set the download attribute
-
-  // Simulate a click on the link to trigger the download
-  link.click();
-});
-
 // Reset button click event
 resetButton.addEventListener('click', function() {
   const bands = document.querySelectorAll('input[name="band"]');
@@ -284,9 +264,6 @@ resetButton.addEventListener('click', function() {
   const posterCanvas = document.getElementById('posterCanvas');
   const context = posterCanvas.getContext('2d');
   context.clearRect(0, 0, posterCanvas.width, posterCanvas.height);
-
-  // Disable the share button
-  document.getElementById('shareBtn').disabled = true;
 
   // Scroll to top
   window.scrollTo(0, 0);

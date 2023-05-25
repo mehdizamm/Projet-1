@@ -1,38 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="form.css">
-    <title>Document</title>
+  <title>Create Your Dream Festival Poster</title>
+  <link rel="stylesheet" type="text/css" href="../Styles/Test.css">
 </head>
 <body>
-    <div class="quiz-container" id="quiz">
-        <div class="quiz-header">
-          <h2 id="question">Question Text</h2>
-          <ul>
-            <li>
-              <input type="radio" name="answer" id="a" class="answer">
-              <label for="a" id="a_text">Answer</label>
-            </li>
-            <li>
-              <input type="radio" name="answer" id="b" class="answer">
-              <label for="b" id="b_text">Answer</label>
-            </li>
-            <li>
-              <input type="radio" name="answer" id="c" class="answer">
-              <label for="c" id="c_text">Answer</label>
-            </li>
-            <li>
-              <input type="radio" name="answer" id="d" class="answer">
-              <label for="d" id="d_text">Answer</label>
-            </li>
-          </ul>
-        </div>
-        <button id="submit">Submit</button>
+
+  <nav>
+    <div id="logo-nav">
+      <a id="logo-dream" href="about.html">MyDreamFest</a>
+    </div>
+    <ul id="boutonsNavbar">
+      <li><a href="about.html">About</a></li>
+      <li><a href="dream.html">My Dream Fest</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+<div id="formContainer">
+    <h1 id="createTitle">Create Your Dream Festival Poster</h1>
+
+  <h1>Create Your Dream Festival Poster</h1>
+  <form id="posterForm">
+    <fieldset>
+      <legend>Select 5 Music Bands:</legend>
+      <div id="bandSelection">
+        <!-- Bands will be dynamically added here -->
       </div>
-    
+    </fieldset>
+
+ <fieldset id="festivalField">
+        <legend>Enter Your Festival Name</legend>
+        <input id="festivalName" type="text" name="festivalName" placeholder="    Enter your Fest name here!" >
+      </fieldset>
+
+    <fieldset>
+      <legend>Select Poster Background Color:</legend>
+      <div id="colorSelection">
+        <!-- Color buttons will be dynamically added here -->
+      </div>
+    </fieldset>
+    <div id="button-field">
+      <button type="submit" id="buttonPoster">Create Poster</button>
+    </div>
+  </form>
+
+<fieldset id="canvasContainer">
+
+  <button id="resetBtn" type="submit" >Reset!</button>
+
+  <canvas id="posterCanvas" width="600" height="800"></canvas>
+
+  <button id="shareBtn" type="submit">Share!</button>
+
+</fieldset>
+</div>
+
+  <script src="../Scripts/testposition.js"></script>
+  <footer>
+    <h4 id="footer-copyright">© My Dream Fest</h4>
+</footer>
 </body>
-<script src="form.js"></script>
 </html>
