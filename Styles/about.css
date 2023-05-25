@@ -1,0 +1,412 @@
+@font-face {
+    font-family: "SurfingCapital";
+    src: url(assets/font/SurfingCapital.ttf);
+    font-family: "Cocogoose";
+    src: url(assets/font/CocogooseProLightTrial.ttf);
+}
+
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+*:visited {
+    text-decoration: none;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+html {
+    background-color: rgb(240, 236, 236);
+    z-index: initials;
+    min-height: 100vh;
+
+}
+
+h1,
+h2 {
+
+    font-family: 'SurfingCapital', sans-serif;
+    color: black;
+    text-align: center;
+
+}
+
+h4 {
+    font-family: 'SurfingCapital', sans-serif;
+    font-size: 15px;
+}
+
+p {
+    font-family: 'Cocogoose', sans-serif;
+}
+
+
+.left {
+    width: 50vw;
+    height: 30vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+}
+
+.right {
+    width: 50vw;
+    height: 30vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 80px 0px 0px 80px;
+    margin: auto;
+    margin-right: 2rem;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+#about-container {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+
+}
+
+
+#createNow a {
+    font-family: 'SurfingCapital', sans-serif;
+    text-align: center;
+    margin-top: 3vw;
+    font-size: 3vw;
+    color: turquoise;
+    text-decoration: none;
+    text-shadow:
+        -1px 0px 0px black,
+        1px 0px 0px black,
+        0px -1px 0px black,
+        0px 1px 0px black;
+}
+
+#createNow a:hover {
+    box-shadow: 15px;
+    color: #F4D74B;
+}
+
+.paragraph-container {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 2rem;
+    object-fit: contain;
+}
+
+#mainDescription {
+    font-size: 1rem;
+    text-align: center;
+    word-wrap: break-word;
+    font-family: "Cocogoose", 'Gill Sans', 'Gill Sans MT';
+}
+
+li {
+    box-sizing: border-box;
+    list-style-type: none;
+    display: inline;
+}
+
+ul {
+    font-size: 3vh;
+}
+
+#title {
+    margin-bottom: 5vh;
+    color: black;
+    font-size: 2vw;
+}
+
+/* a:not(#gallery-about) {
+    text-decoration: none;
+    font-family: "Cocogoose", 'Gill Sans', 'Gill Sans MT';
+    color: black;
+    padding: 23px;
+} */
+
+#boutonsNavbar {
+    font-family: 'SurfingCapital', sans-serif;
+    width: 100vh;
+    display: flex;
+    justify-content: flex-end;
+    justify-content: space-around;
+    align-items: center;
+    color: #F4D74B;
+}
+
+#boutonsNavbar a {
+    color: black;
+}
+
+#boutonsNavbar :hover {
+    color: turquoise;
+    text-shadow:
+        -1px 0px 0px black,
+        1px 0px 0px black,
+        0px -1px 0px black,
+        0px 1px 0px black;
+}
+
+#logo-dream {
+    margin-left: 1vw;
+    text-shadow:
+        -1px 0px 0px black,
+        1px 0px 0px black,
+        0px -1px 0px black,
+        0px 1px 0px black;
+}
+
+
+
+#gallery-about:hover {
+    color: #F4D74B;
+}
+
+#mainButton a:hover {
+    color: black;
+    background-color: none;
+    text-shadow: none;
+}
+
+
+#gallery-about {
+    text-decoration: none;
+    font-family: "SurfingCapital", sans-serif;
+    color: black;
+    font-size: 15px;
+    text-align: center;
+}
+
+
+
+#mainButton a {
+    font-family: "SurfingCapital", sans-serif;
+    color: turquoise;
+    font-size: 2rem;
+    text-decoration: none;
+
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+    height: 4rem;
+    margin-top: 5px;
+}
+
+#abouth1 {
+    display: flex;
+    flex-direction: column;
+    font-size: 13vw;
+    text-align: center;
+}
+
+#paragraphe {
+    flex: auto;
+    margin: 6rem;
+}
+
+div {
+    display: flex;
+    flex: auto;
+}
+
+#footer-copyright {
+    position: relative;
+    width: 100vw;
+    bottom: O;
+    padding: 3px;
+    font-weight: bold;
+    margin: 0;
+}
+
+
+
+
+/* boutonburger */
+
+
+.fullPageMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    transition: 0.3s;
+    visibility: hidden;
+    z-index: 100;
+
+}
+
+.fullPageMenu.active {
+    top: 0;
+    visibility: visible;
+    z-index: 200;
+}
+
+.fullPageMenu .banner {
+    position: relative;
+    width: 600px;
+    height: 100%;
+}
+
+.fullPageMenu .nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.fullPageMenu .nav ul {
+    position: relative;
+}
+
+.fullPageMenu .nav ul li {
+    position: relative;
+    list-style: none;
+    padding: 0 20px;
+    margin: 5px 0;
+    overflow: hidden;
+    display: table;
+}
+
+.fullPageMenu .nav ul li:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    transition: transform 0.3s ease-in-out;
+    transform: scaleY(0);
+    transform-origin: bottom;
+}
+
+.fullPageMenu .nav ul li:hover:before {
+    transition: transform 0.5s ease-in-out;
+    transform: scaleY(1);
+    transform-origin: top;
+}
+
+.fullPageMenu .nav ul li a {
+    font-family: "SurfingCapital", sans-serif;
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    font-size: 4em;
+    font-weight: 700;
+    line-height: 1em;
+    display: inline-block;
+    text-transform: uppercase;
+    transition: 0.3s ease-in-out;
+}
+
+.fullPageMenu .nav ul li a:before {
+    content: attr(data-text);
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    color: turquoise;
+}
+
+.fullPageMenu .nav ul li:hover a {
+    transform: translateY(-100%);
+    color: grey;
+}
+
+.menuicon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: turquoise url(https://cdn.icon-icons.com/icons2/2024/PNG/512/lines_menu_burger_icon_123889.png);
+    background-size: 40px;
+    cursor: pointer;
+    border-radius: 30px;
+    background-repeat: no-repeat;
+    background-position: 10px;
+    z-index: 300;
+}
+
+.menuicon.active {
+    background: fuchsia url(https://i.postimg.cc/25t1dMY5/pngegg-1.png);
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: 10px;
+}
+
+
+@media screen and (max-width: 1000px) {
+
+    .list a {
+        font-size: 2rem;
+    }
+
+    #boutonsNavbar {
+        display: none;
+    }
+
+    .menuicon {
+        display: initial;
+    }
+
+    #about-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+    }
+
+    #createNow a {
+        size: 30vw;
+    }
+
+    .right {
+        width: auto;
+        height: 70vh;
+        display: flex;
+        justify-content: center;
+        border-radius: 80px;
+        margin: 2%;
+        margin-bottom: 20vh;
+    }
+
+    .left {
+        width: auto;
+    }
+
+    footer {
+        position: absolute;
+        bottom: 0;
+        width: 100vh;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+
+    .menuicon {
+        display: none;
+    }
+}
