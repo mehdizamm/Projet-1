@@ -90,8 +90,6 @@ p {
         1px 0px 0px black,
         0px -1px 0px black,
         0px 1px 0px black;
-    background-color: #333;
-    text-shadow: #48b6db 0 -1px 4px, rgb(99, 99, 20) 0 -2px 10px, #009dff 0 -10px 20px, rgb(69, 59, 255) 0 -18px 40px;
 }
 
 #createNow a:hover {
