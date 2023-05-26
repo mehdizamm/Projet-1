@@ -4,29 +4,30 @@ const fullPageMenu = document.querySelector(".fullPageMenu");
 let isOpen = false;
 
 const handleToggle = () => {
-    isOpen = !isOpen;
+  isOpen = !isOpen;
 
-    if (isOpen) {
-        fullPageMenu.classList.add("active");
-    } else {
-        fullPageMenu.classList.remove("active");
-    }
+  if (isOpen) {
+    fullPageMenu.classList.add("active");
+  } else {
+    fullPageMenu.classList.remove("active");
+  }
 };
 
 toggleButton.addEventListener("click", handleToggle);
+
 const bands = [
-  { name: 'Aerosmith', logo: '../assets/images/Aerosmith.png' },
-  { name: 'Metallica', logo: '../assets/images/Metallica.png' },
+  { name: 'Aerosmith', logo: '../assets/images/readaerosmith.png' },
+  { name: 'Metallica', logo: '../assets/images/metallicapink.png' },
   { name: 'Kiss', logo: '../assets/images/Kiss.png' },
   { name: 'PNL', logo: '../assets/images/PNL.png' },
   { name: 'Jul', logo: '../assets/images/Jul.png' },
-  { name: 'Scorpions', logo: '../assets/images/Scorpions.png' },
+  { name: 'Scorpions', logo: '../assets/images/scorpionsorange.png' },
   { name: 'Kekra', logo: '../assets/images/Kekra.png' },
-  { name: 'PinkFloyd', logo: '../assets/images/PinkFloyd.png' },
-  { name: 'ChelseaGrin', logo: '../assets/images/ChelseaGrin.png' },
+  { name: 'PinkFloyd', logo: '../assets/images/pinkfloyedred.png' },
+  { name: 'ChelseaGrin', logo: '../assets/images/chelseapink.png' },
   { name: 'Tiesto', logo: '../assets/images/Tiesto.png' },
-  { name: 'AvengedSevenfold', logo: '../assets/images/AvengedSevenfold.png' },
-  { name: 'Gojira', logo: '../assets/images/Gojira.png' },
+  { name: 'AvengedSevenfold', logo: '../assets/images/avengedturquoise.png' },
+  { name: 'Gojira', logo: '../assets/images/gojiraorange.png' },
   // Add more bands here
 ];
 
@@ -52,10 +53,10 @@ const resetButton = document.getElementById('resetBtn');
 const bandSelectionDiv = document.getElementById('bandSelection');
 const colorSelectionDiv = document.getElementById('colorSelection');
 let selectedColorButton = null;
-const loadedLogos = {}; // Pour stocker les logos déjà chargés
+const loadedLogos = {}; // To store already loaded logos
 
 // Create band selection checkboxes
-bands.forEach(function(band) {
+bands.forEach(function (band) {
   const label = document.createElement('label');
   const checkbox = document.createElement('input');
   checkbox.type = 'checkbox';
@@ -69,13 +70,13 @@ bands.forEach(function(band) {
 });
 
 // Create color selection buttons
-colors.forEach(function(color) {
+colors.forEach(function (color) {
   const button = document.createElement('div');
   button.className = 'colorButton';
   button.style.backgroundColor = color.name.toLowerCase();
   button.dataset.image = color.image;
 
-  button.addEventListener('click', function() {
+  button.addEventListener('click', function () {
     selectColor(button);
   });
 
@@ -94,22 +95,22 @@ function selectColor(colorButton) {
   const canvas = document.getElementById('posterCanvas');
   const context = canvas.getContext('2d');
 
-  context.clearRect(0, 0, canvas.width, canvas.height); // Effacer le canvas
+  context.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
 
   const image = new Image();
   image.src = colorButton.dataset.image;
 
-  image.onload = function() {
+  image.onload = function () {
     context.drawImage(image, 0, 0, canvas.width, canvas.height);
   };
 }
 
-document.getElementById('posterForm').addEventListener('submit', function(event) {
+document.getElementById('posterForm').addEventListener('submit', function (event) {
   event.preventDefault();
 
   const bands = document.querySelectorAll('input[name="band"]:checked');
-  if (bands.length !== 5) {
-    alert('Please select exactly 5 bands.');
+  if (bands.length !== 7) {
+    alert('Please select exactly 7 bands.');
     return;
   }
 
@@ -139,46 +140,42 @@ document.getElementById('posterForm').addEventListener('submit', function(event)
   const backgroundImage = new Image();
   backgroundImage.src = selectedColorButton.dataset.image;
 
-  backgroundImage.onload = function() {
+  backgroundImage.onload = function () {
     context.drawImage(backgroundImage, 0, 0, posterCanvas.width, posterCanvas.height);
 
-    let loadedCount = 0; // Compteur des logos chargés
+    let loadedCount = 0; // Counter for loaded logos
 
-    // Fonction de rappel pour charger les logos
+    // Callback function to load logos
     function loadLogo(bandName, index) {
       const logo = new Image();
       logo.src = getLogoPath(bandName);
 
-      logo.onload = function() {
+      logo.onload = function () {
         loadedCount++;
 
         if (loadedCount === selectedBands.length) {
-          // Tous les logos sont chargés
+          // All logos are loaded
           drawPoster();
-
-          // Activer le bouton "share" une fois que le poster est généré
-          document.getElementById('shareBtn').disabled = false;
+          document.getElementById('shareBtn').disabled = false; // Enable the "share" button once the poster is generated
         }
       };
 
-      loadedLogos[index] = logo; // Stocker le logo chargé
+      loadedLogos[index] = logo; // Store the loaded logo
     }
 
-    // Charger tous les logos des groupes sélectionnés
-    selectedBands.forEach(function(bandName, index) {
+    // Load all logos of the selected bands
+    selectedBands.forEach(function (bandName, index) {
       if (loadedLogos[index]) {
-        // Utiliser le logo déjà chargé
+        // Use the already loaded logo
         loadedCount++;
 
         if (loadedCount === selectedBands.length) {
-          // Tous les logos sont chargés
+          // All logos are loaded
           drawPoster();
-
-          // Activer le bouton "share" une fois que le poster est généré
-          document.getElementById('shareBtn').disabled = false;
+          document.getElementById('shareBtn').disabled = false; // Enable the "share" button once the poster is generated
         }
       } else {
-        // Charger le logo
+        // Load the logo
         loadLogo(bandName, index);
       }
     });
@@ -186,7 +183,7 @@ document.getElementById('posterForm').addEventListener('submit', function(event)
 });
 
 function getLogoPath(bandName) {
-  const selectedBand = bands.find(function(band) {
+  const selectedBand = bands.find(function (band) {
     return band.name === bandName;
   });
 
@@ -203,21 +200,32 @@ function drawPoster() {
   const backgroundImage = new Image();
   backgroundImage.src = selectedColorButton.dataset.image;
 
-  backgroundImage.onload = function() {
+  backgroundImage.onload = function () {
     context.drawImage(backgroundImage, 0, 0, posterCanvas.width, posterCanvas.height);
 
     // Shuffle the bands array randomly
-    const shuffledBands = Array.from(bands).sort(function() {
+    const shuffledBands = Array.from(bands).sort(function () {
       return 0.5 - Math.random();
     });
 
     // Draw festival name
     const fontSize = 60;
-    const fontFamily = festivalNameFonts[Math.floor(Math.random() * festivalNameFonts.length)];
+    const fontFamily =
+      festivalNameFonts[Math.floor(Math.random() * festivalNameFonts.length)];
     context.font = `${fontSize}px ${fontFamily}`;
     context.textAlign = 'center';
-    context.fillStyle = 'turquoise';
-    context.fillText(festivalName, posterCanvas.width / 2, 300);
+    context.fillStyle = 'black';
+    const textY = 300;
+    const maxTextWidth = posterCanvas.width - 2 * 100; // Max width to keep text away from edges
+
+    let adjustedFestivalName = festivalName;
+    let textWidth = context.measureText(adjustedFestivalName).width;
+    while (textWidth > maxTextWidth) {
+      adjustedFestivalName = adjustedFestivalName.slice(0, -1); // Remove last character
+      textWidth = context.measureText(adjustedFestivalName).width;
+    }
+
+    context.fillText(adjustedFestivalName, posterCanvas.width / 2, textY);
 
     // Draw band logos
     const logoSize = 150;
@@ -235,7 +243,7 @@ function drawPoster() {
       let x = Math.random() * (posterCanvas.width - 2 * margin - logoSize) + margin;
       let y = Math.random() * (posterCanvas.height - startY - margin - logoSize) + startY;
 
-      // Check for collisions with other logos
+      // Check for collisions with other logos and text
       let collision = false;
       for (let k = 0; k < logoPositions.length; k++) {
         const pos = logoPositions[k];
@@ -247,6 +255,21 @@ function drawPoster() {
           collision = true;
           break;
         }
+      }
+
+      const textWidth = context.measureText(adjustedFestivalName).width;
+      const textLeft = posterCanvas.width / 2 - textWidth / 2;
+      const textRight = posterCanvas.width / 2 + textWidth / 2;
+      const textTop = textY - fontSize / 2;
+      const textBottom = textY + fontSize / 2;
+
+      if (
+        x + logoSize > textLeft &&
+        x < textRight &&
+        y + logoSize > textTop &&
+        y < textBottom
+      ) {
+        collision = true;
       }
 
       if (collision) {
@@ -266,7 +289,7 @@ function drawPoster() {
 }
 
 // Share button click event
-document.getElementById('shareBtn').addEventListener('click', function() {
+document.getElementById('shareBtn').addEventListener('click', function () {
   const posterCanvas = document.getElementById('posterCanvas');
   const dataURL = posterCanvas.toDataURL(); // Convert canvas to data URL
 
@@ -280,24 +303,15 @@ document.getElementById('shareBtn').addEventListener('click', function() {
 });
 
 // Reset button click event
-resetButton.addEventListener('click', function() {
-  const bands = document.querySelectorAll('input[name="band"]');
-  const festivalNameInput = document.querySelector('input[name="festivalName"]');
-  const colorButtons = document.getElementsByClassName('colorButton');
+resetButton.addEventListener('click', function () {
+  // Reset form
+  document.getElementById('posterForm').reset();
 
-  // Uncheck all band checkboxes
-  for (let i = 0; i < bands.length; i++) {
-    bands[i].checked = false;
+  // Reset color selection
+  const buttons = document.getElementsByClassName('colorButton');
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].classList.remove('selected');
   }
-
-  // Clear festival name input
-  festivalNameInput.value = '';
-
-  // Remove color selection
-  for (let i = 0; i < colorButtons.length; i++) {
-    colorButtons[i].classList.remove('selected');
-  }
-
   selectedColorButton = null;
 
   // Clear canvas
@@ -305,9 +319,5 @@ resetButton.addEventListener('click', function() {
   const context = posterCanvas.getContext('2d');
   context.clearRect(0, 0, posterCanvas.width, posterCanvas.height);
 
-  // Disable the share button
-  document.getElementById('shareBtn').disabled = true;
-
-  // Scroll to top
   window.scrollTo(500, 500);
 });
