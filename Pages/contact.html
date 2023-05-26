@@ -10,9 +10,6 @@
 </head>
 
 <body>
-  <!-- <header>
-        <h1 id="logo-dream">MY DREAM FEST</h1>
-    </header> -->
   <nav>
     <div id="mainButton">
       <p><a id="logo-dream" href="about.html">MyDreamFest</a></p>
@@ -35,26 +32,24 @@
 
 
 
-          <label id="name-contact" for="firstname/lastname">Name</label>
-          <div id="Namebox">
-            <div>
-              <input class="firstname-lastname" type="text" name="firstname-lastname" required
-                placeholder="First Name*">
-            </div>
-            <!--<div>
-                              <input class="firstname-lastname"  type="text" name="firstname-lastname"  required placeholder="Last Name*">
-                            </div>-->
+          <div id="namebox">
+            <label id="name-contact" for="firstname/lastname">Name</label>
+            <input class="firstname-lastname" type="text" name="firstname-lastname" required placeholder="First Name*">
           </div>
 
-          <br><br><br><br><br><br>
+
           <div id="email-input">
             <label class="contact-label" for="email">Email</label>
             <input id="email" class="form-input" type="email" placeholder="Your Email*">
           </div>
-          <label class="contact-label" for="message">Message</label>
-          <textarea minlength="20" id="message" cols="30" rows="7" required></textarea>
 
-          <button type="submit" class="submit-button" value="Submit" onclick="checkValidations()">Submit</button>
+          <div id="messageForm">
+            <label class="contact-label" for="message">Message</label>
+            <textarea id="texte" minlength="20" id="message" cols="30" rows="7" required></textarea>
+          </div>
+          <div id="levraibouton">
+            <button type="submit" class="submit-button" value="Submit" onclick="checkValidations()">Submit</button>
+          </div>
 
         </form>
       </div>
@@ -63,26 +58,7 @@
   </div>
 
   </div>
-  <!--<form id="contact-form">
-                 <div>
-                    <label for="firstName">Firstname</label>
-                    <input type="text" name="Prenom/Nom" required placeHolder="Firstname">
-                 </div>
-                 <div>
-                    <label for="Name">Name</label>
-                    <input type="text" name="Prenom/Nom" required placeHolder="Name">
-                 </div>
-                 <div>
-                    <label for="email">Email</label>
-                    <input type="email" name="email" required placeHolder="Jean.Blanc@gmail.com">
-                 </div>
-                 <div>
-                 <label for="contactUs">Contact us</label>
-                 <textarea id="contactUs" name="contactUs" required placeholder="Your message here"></textarea>
-                </div>
-                <button type="submit">Send</button>
-            </form>
-    </div>-->
+
   <footer>
     <p id="footer-copyright">© My Dream Fest</p>
   </footer>
